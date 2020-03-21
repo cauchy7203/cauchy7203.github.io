@@ -1,2 +1,48 @@
 this is a test of github blog
 .\Evolutionary neuron-based Arps decline model.html
+##### 个人简介
+
+本人,,,,,XXXX
+
+
+
+
+
+提出了模型
+
+
+
+已知$f(x),g(x)$连续可导，证明
+$$
+\left|
+\matrix{f(a)&f(b)\\
+g(a) & g(b)}
+\right|
+=(b-a)\left|\matrix{f(a)&f'(\xi)\\
+g(a) & g'(\xi)}
+\right|
+$$
+**分析**：注意行列式的定义和运算法则：
+$$
+\left|
+\matrix{a&b\\
+c & d}
+\right|=ab-cd
+$$
+原题即证：
+$$
+f(a)g(b)-f(b)g(a)=(b-a)\Big(f(a)g'(\xi)-f'(\xi)g(a)\Big)
+$$
+整理:
+$$
+\frac{f(a)g(b)-f(b)g(a)}{b-a}=f(a)g'(\xi)-f'(\xi)g(a)
+$$
+**注意**：$\xi$ 即对应辅助函数中的 $x$. 那么容易想到，辅助函数即为：
+$$
+F(x)=f(a)g(x)-f(x)g(a)
+$$
+对该函数使用一次Lagrange中值定理，即可证明原题结论。
+
+<p align="right"><i>By Dr. Ma </i></p>  
+
+ 
