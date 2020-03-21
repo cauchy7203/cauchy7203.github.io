@@ -1,4 +1,4 @@
-
+﻿
 //是否显示导航栏
  var showNavBar = true;
  //是否展开导航栏
@@ -101,15 +101,17 @@
         $(this).attr({"title":"展开"});
         $("#AnchorContent").hide();
     }
+	
 	$(".md-toc").hide()
  });
 
 
- $(window).resize(function() {
+  $(window).resize(function() {
   $("#AnchorContent").css('max-height', ($(window).height() - 80) + 'px');
+  
 });
 
 
 //插入title的ico图标
-//var ico_link = "<link rel=icon type=image/png sizes=32x32 href=2html/ico.png>";
-//$("head").prepend(ico_link);
+var ico_link = "<link rel=icon type=image/png sizes=32x32 href=2html/ico.png>";
+$("head").prepend(ico_link);
