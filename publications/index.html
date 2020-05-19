@@ -1,18 +1,16 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"> 
-  <head>
+  <head> 
     <meta http-equiv="Content-type" content="text/html;charset=UTF-8" /> 
     <meta http-equiv="cache-control" content="no-cache" /> 
     <title> 
-      Xin Ma's Publications (Full List)
+      Xin Ma's Publications (Full list)
     </title>
     
-    <script src="jquery.min.js"></script>
-    <script src="bibtex_js.js" type="text/javascript" charset="utf-8"></script>
-    <bibtex src="maxin.bib"></bibtex>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./src/bibtex_js.js" type="text/javascript" charset="utf-8"></script>
+    <bibtex src="https://maxin.website/publications/maxin.bib"></bibtex>
     
     <script>
 		$(function() {
@@ -24,7 +22,7 @@
 		    	$(this).css("font-family",font);
 		    });
 		  }); 
-		});
+		});   
 		function reset() {
 			$("select").each(function () {
 			  localStorage.setItem($(this).attr("id"),"");
@@ -53,7 +51,7 @@
   </head>
 <body>
 <a name="top"></a>
-<h1 class="header">Manuela Veloso's Publications</h1>
+<h1 class="header">Xin Ma's Publications (Full list)</h1>
 <div class="container-fluid">
 	<div class="searchbar">
 		<div style="float:left;">
@@ -62,43 +60,17 @@
 		<div style="float:left;">
 			<select id="authorselectfirst" class="btn bibtex_search bibtex_author" style="border: 1px solid lightgrey;" extra="first" search="author">
 			  <option value="">Search First Author</option>
-			</select>
-		</div>
-		<div style="float:left;">
-			<select id="authorselect" class="btn bibtex_search bibtex_author" style="border: 1px solid lightgrey;" search="author">
-			  <option value="">Search Author</option>
-			</select>
-		</div>
-		<div style="float:left;">
-			<select id="topicselect" class="btn
-							bibtex_search"
-				style="border: 1px solid lightgrey;" search="topic">
-			  <option value="">Search Topic</option>
-			  <!-- Add topic values here -->
-			  <option value="test1">Test1</option>
-			  <option value="test2">Test2</option>
-			  <option value="Autonomy">Autonomy</option>
-			  <option value="Symbiotic">Symbiotic Autonomy</option>
-			  <option value="CoBot|Episodic|Service|Insights|Model-Instance|Diverse">CoBot</option>
-			  <option value="Learning">Learning</option>
-			  <option value="Multiagent">Multiagent Systems</option>
-			  <option value="Multi-robot|Multirobot|soccer|Multiagent">Multirobot Systems</option>
-			  <option value="Planning">Planning</option>
-			  <option value="Robot">Autonomous Robots</option>
-			  <option value="Localization">Robot Localization</option>
-			  <option value="Soccer|Multi-robot">Robot Soccer</option>
-			  <option value="Vision">Vision</option>
+			  <option value="Xin Ma">Xin Ma</option>
 			</select>
 		</div>
 		<div style="float:left;">
 			<input type="text" class="bibtex_search form-control" id="searchbar" placeholder="Search publications">
-			<span class="help-block">Example: journal 2015 (finds the intersection of the two terms)</span>
 		</div>
 	</div>
 </div>
 
 <div class="bibtex_structure">
-  <div class="group year" extra="ASC number">
+  <div class="group year" extra="DESC number">
   	  <a href="#top" style="display: inline"><em>(Top of the page)</em></a>
   	  <div style="padding-bottom:10px;"></div>
   	  <div class="sort journal" extra="DESC string">
@@ -108,16 +80,12 @@
 </div>
 
 <div id="bibtex_display">
-
-  <div class="if bibtex_template" style="display: none;">
+  
+  <div class="bibtex_template" style="display: none;">
     <ul> <li>
-      <span class="if journal !nolink">
-        <a class="bibtexVar" href="http://www.cs.cmu.edu/~mmv/papers/+BIBTEXKEY+.pdf" extra="BIBTEXKEY">
+      <span class="if title">        
             <span style="text-decoration: underline;" class="title"></span>,
         </a>
-      </span>
-      <span class="if title nolink">
-            <span class="title"></span>,
       </span>
       <div class="if author">
         <span class="author"></span>
@@ -126,9 +94,6 @@
         <span class="if journal"><em><span class="journal"></span></em>,</span>
         <span class="if booktitle">In <em><span class="booktitle"></span></em>,</span>
         <span class="if editor"><span class="editor"></span> (editors),</span>
-        <span class="if publisher"><em><span class="publisher"></span></em>,</span>
-        <span class="if !journal number">Technical report <span class="number"></span>,</span>
-        <span class="if institution"><span class="institution"></span>,</span>
         <span class="if address"><span class="address"></span>,</span>
         <span class="if volume"><span class="volume"></span>,</span>
         <span class="if journal number">(<span class="number"></span>),</span>
@@ -145,8 +110,7 @@
 		    <pre><span class="bibtexraw noread"></span></pre>
 		  </div>
 	  </div>
-      <div style="display:none"><span class="bibtextype"></span></div>
-      <div style="display:none"><span class="if topic"><span class="topic"></span></span></div>
+	  <div style="display:none"><span class="bibtextype"></span></div>
     </li></ul>
   </div>
   
@@ -155,4 +119,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
-
