@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8"> 
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>GMI</title>
+   <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link  rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css" />
+	<link  rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+	<script src="js/lib/jquery-3.2.1.js"></script>
+</head>
+<body>
+
+<div class="container">
+	<!--head div -->
+	<div class="row clearfix">
+			<nav class="navbar navbar-default" role="navigation">
+			
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="new_index.html">主页</a>
+				</div>
+				
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							 <a href="model_select.html">模型选择</a>
+						</li>
+						<li>
+							 <a href="about.html">关于灰色系统</a>
+						</li>
+					</ul>
+				</div>
+				
+			</nav>
+			<h1 class="text-center">
+				灰色预测在线计算平台
+			</h1>
+			<hr />
+			<h4 class="text-center">
+				 用于建模的模型：GM(1,1)(拟合后积分)
+			</h4>
+			 <p class="text-center">模型说明：用非齐次指数函数拟合一次累加序列后直接积分计算背景值</p>
+		</div>
+	</div>
+	<hr />
+	
+	<!--建模 预测个数输入 div -->
+	<div class="row clearfix">
+		<div class="col-md-3 column">
+		</div>
+		<div class="col-md-3 column">
+			<form role="form">
+				<div class="form-group">
+				<label>用于建模的数据个数:</label> 
+				<input type="text" class="form-control" id="build"/>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-3 column">
+			<form role="form">
+				<div class="form-group">
+					<label>用于预测评估的数据个数:</label>
+						<input type="text" class="form-control" id="predict"/>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-3 column">
+		</div>
+	</div>
+	
+
+	<!--原始序列输入 div -->
+	<div class="row clearfix"> 
+		<div class="col-md-3 column">
+		</div>
+		
+		<div class="col-md-6 column">
+			<form role="form">
+			  <div class="form-group">
+				<input id="type" type="hidden" value="gmi"/>
+				<textarea id="input" class="form-control" rows="3" placeholder="输入原始序列,数据之间以逗号或者空格分隔"></textarea>
+			  </div>
+			  
+			  <button id="get" type="button" class="btn active btn-default btn-info btn-block">显示计算结果</button>
+			</form>
+		</div>
+
+		
+		<div class="col-md-3 column">
+		</div>
+	</div>
+
+	<hr />
+	<!-- chart div -->
+	<div class="row clearfix"> 
+		<div class="col-md-2 column">
+		</div>
+		
+		<div class="col-md-8 column">
+			<div id="chart1">
+			
+			</div>
+		</div>
+
+		
+		<div class="col-md-2 column">
+		</div>
+	</div>
+	<hr />
+	<!-- table div -->
+	<div class="row clearfix"> 
+
+		<div class="col-md-2 column">
+		</div>
+		
+		<div class="col-md-8 column">
+			<div id="tb">
+				<table id="example" class="display"></table>
+			</div>
+		</div>
+
+		
+		<div class="col-md-2 column">
+		</div>
+	</div>
+	
+	<hr />
+	<!-- footer div-->
+	<div class="row clearfix"> 
+		<div class="col-md-2 column">
+		</div>
+		
+		<div class="col-md-8 column">
+		    <div id="footer" class="text-center">
+				<p>By Gonerkong Email:gonerkonggg@126.com</p>
+			</div>
+		</div>
+
+		
+		<div class="col-md-2 column">
+		</div>
+	</div>
+	
+</div>
+    <script src="js/lib/math.min.js"></script>
+    <script src="js/GMI.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+	<script src="js/lib/jquery.jqplot.js"></script>
+	<script src="js/lib/jqplot.canvasTextRenderer.js"></script>
+	<script src="js/lib/jqplot.canvasAxisLabelRenderer.js"></script>
+	<script src="js/lib/jqplot.canvasAxisTickRenderer.js"></script>
+	<script src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script src="js/lib/jqplot.cursor.js"></script>
+    <script src="js/lib/jqplot.highlighter.js"></script>
+    <script src="js/test.js" ></script>
+</body>
+</html>
