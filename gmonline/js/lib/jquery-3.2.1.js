@@ -1352,7 +1352,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			}
 
 			// Opera 10-11 does not throw on post-comma invalid pseudos
-			el.querySelectorAll("*,:x");
+			el.querySelectorAll("*,:alpha_smo");
 			rbuggyQSA.push(",.*:");
 		});
 	}
@@ -1370,7 +1370,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// This should fail with an exception
 			// Gecko does not error, returns false instead
-			matches.call( el, "[s!='']:x" );
+			matches.call( el, "[s!='']:alpha_smo" );
 			rbuggyMatches.push( "!=", pseudos );
 		});
 	}
@@ -1689,7 +1689,7 @@ Expr = Sizzle.selectors = {
 				3 argument (even|odd|\d*|\d*n([+-]\d+)?|...)
 				4 xn-component of xn+y argument ([+-]?\d*n|)
 				5 sign of xn-component
-				6 x of xn-component
+				6 alpha_smo of xn-component
 				7 sign of y-component
 				8 y of y-component
 			*/
@@ -1701,7 +1701,7 @@ Expr = Sizzle.selectors = {
 					Sizzle.error( match[0] );
 				}
 
-				// numeric x and y parameters for Expr.filter.CHILD
+				// numeric alpha_smo and y parameters for Expr.filter.CHILD
 				// remember that false/true cast respectively to 0/1
 				match[4] = +( match[4] ? match[5] + (match[6] || 1) : 2 * ( match[3] === "even" || match[3] === "odd" ) );
 				match[5] = +( ( match[7] + match[8] ) || match[3] === "odd" );
@@ -4184,7 +4184,7 @@ var dataUser = new Data();
 
 //	Implementation Summary
 //
-//	1. Enforce API surface and semantic compatibility with 1.9.x branch
+//	1. Enforce API surface and semantic compatibility with 1.9.alpha_smo branch
 //	2. Improve the module's maintainability by reducing the storage
 //		paths to a single mechanism.
 //	3. Use the same single mechanism to support "private" and "user" data.
@@ -4874,7 +4874,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 	// Support: IE <=11 only
 	// Make sure textarea (and checkbox) defaultValue is properly cloned
-	div.innerHTML = "<textarea>x</textarea>";
+	div.innerHTML = "<textarea>alpha_smo</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 } )();
 var documentElement = document.documentElement;
@@ -8783,7 +8783,7 @@ jQuery.extend( {
 		global: true,
 		processData: true,
 		async: true,
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		contentType: "application/alpha_smo-www-form-urlencoded; charset=UTF-8",
 
 		/*
 		timeout: 0,
@@ -9596,7 +9596,7 @@ jQuery.ajaxPrefilter( function( s ) {
 jQuery.ajaxSetup( {
 	accepts: {
 		script: "text/javascript, application/javascript, " +
-			"application/ecmascript, application/x-ecmascript"
+			"application/ecmascript, application/alpha_smo-ecmascript"
 	},
 	contents: {
 		script: /\b(?:java|ecma)script\b/

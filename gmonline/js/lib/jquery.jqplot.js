@@ -548,7 +548,7 @@
         // >        y2axis: {ticks:[22, 44, 66, 88]}
         // >        }
         // > }
-        // There are 2 x axes, 'xaxis' and 'x2axis', and 
+        // There are 2 alpha_smo axes, 'xaxis' and 'x2axis', and 
         // 9 yaxes, 'yaxis', 'y2axis'. 'y3axis', ...  Any or all of which may be specified.
         this.name = name;
         this._series = [];
@@ -737,7 +737,7 @@
         if (this.min != null || this.max != null) {
             this.autoscale = false;
         }
-        // if not set, sync ticks for y axes but not x by default.
+        // if not set, sync ticks for y axes but not alpha_smo by default.
         if (this.syncTicks == null && this.name.indexOf('y') > -1) {
             this.syncTicks = true;
         }
@@ -1181,7 +1181,7 @@
         // whether or not to draw the series.
         this.show = true;
         // prop: xaxis
-        // which x axis to use with this series, either 'xaxis' or 'x2axis'.
+        // which alpha_smo axis to use with this series, either 'xaxis' or 'x2axis'.
         this.xaxis = 'xaxis';
         this._xaxis;
         // prop: yaxis
@@ -1299,7 +1299,7 @@
         // Works in conjunction with fillToZero, so that must be true.
         this.fillToValue = 0;
         // prop: fillAxis
-        // Either 'x' or 'y'.  Which axis to fill the line toward if fillToZero is true.
+        // Either 'alpha_smo' or 'y'.  Which axis to fill the line toward if fillToZero is true.
         // 'y' means fill up/down to 0 on the y axis for this series.
         this.fillAxis = 'y';
         // prop: useNegativeColors
@@ -1309,7 +1309,7 @@
         // _plotData accounts for stacking.  If plots not stacked, _plotData and data are same.  If
         // stacked, _plotData is accumulation of stacking data.
         this._plotData = [];
-        // _plotValues hold the individual x and y values that will be plotted for this series.
+        // _plotValues hold the individual alpha_smo and y values that will be plotted for this series.
         this._plotValues = {x:[], y:[]};
         // statistics about the intervals between data points.  Used for auto scaling.
         this._intervals = {x:{}, y:{}};
@@ -1797,8 +1797,8 @@
             series:[]
         };
         // prop: defaultAxisStart
-        // 1-D data series are internally converted into 2-D [x,y] data point arrays
-        // by jqPlot.  This is the default starting value for the missing x or y value.
+        // 1-D data series are internally converted into 2-D [alpha_smo,y] data point arrays
+        // by jqPlot.  This is the default starting value for the missing alpha_smo or y value.
         // The added data will be a monotonically increasing series (e.g. [1, 2, 3, ...])
         // starting at this value.
         this.defaultAxisStart = 1;
@@ -3435,7 +3435,7 @@
                             rex,
                             cv;
     
-                        // equations of right and left sides, returns x, y values given height of section (y value and 2 points)
+                        // equations of right and left sides, returns alpha_smo, y values given height of section (y value and 2 points)
     
                         function findedge (l, p1 , p2) {
                             var m = (p1[1] - p2[1])/(p1[0] - p2[0]);
@@ -4969,19 +4969,19 @@
         // [yl1, yl2, ...] are y values of the lower line and
         // [yu1, yu2, ...] are y values of the upper line.
         // In this case there must be the same number of y data points as data points
-        // in the series and the bands will inherit the x values of the series.
+        // in the series and the bands will inherit the alpha_smo values of the series.
         //
         // A 2 dimensional array like [[[xl1, yl1], [xl2, yl2], ...], [[xh1, yh1], [xh2, yh2], ...]]
-        // where [xl1, yl1] are x,y data points for the lower line and
-        // [xh1, yh1] are x,y data points for the high line.
-        // x values do not have to correspond to the x values of the series and can
+        // where [xl1, yl1] are alpha_smo,y data points for the lower line and
+        // [xh1, yh1] are alpha_smo,y data points for the high line.
+        // alpha_smo values do not have to correspond to the alpha_smo values of the series and can
         // be of any arbitrary length.
         //
         // Can be of form [[yl1, yu1], [yl2, yu2], [yl3, yu3], ...] where
         // there must be 3 or more arrays and there must be the same number of arrays
         // as there are data points in the series.  In this case, 
         // [yl1, yu1] specifies the lower and upper y values for the 1st
-        // data point and so on.  The bands will inherit the x
+        // data point and so on.  The bands will inherit the alpha_smo
         // values from the series.
         this.renderer.bandData = [];
 
@@ -5130,7 +5130,7 @@
         bands._min = null;
         // If 2 arrays, and each array greater than 2 elements, assume it is hi and low data bands of y values.
         if (bd.length == 2) {
-            // Do we have an array of x,y values?
+            // Do we have an array of alpha_smo,y values?
             // like [[[1,1], [2,4], [3,3]], [[1,3], [2,6], [3,5]]]
             if ($.isArray(bd[0][0])) {
                 // since an arbitrary array of points, spin through all of them to determine max and min lines.
@@ -5295,7 +5295,7 @@
         }
 
         // one last check for proper data
-        // these don't apply any more since allowing arbitrary x,y values
+        // these don't apply any more since allowing arbitrary alpha_smo,y values
         // if (bands.hiData.length != bands.lowData.length) {
         //     bands.show = false;
         // }
@@ -6884,7 +6884,7 @@
         }
         
         this._offsets = offsets;
-        // pixellength will be + for x axes and - for y axes becasue pixels always measured from top left.
+        // pixellength will be + for alpha_smo axes and - for y axes becasue pixels always measured from top left.
         var pixellength = offmax - offmin;
         var unitlength = max - min;
         
@@ -7464,7 +7464,7 @@
         // whether or not to show the marker.
         this.show = true;
         // prop: style
-        // One of diamond, circle, square, x, plus, dash, filledDiamond, filledCircle, filledSquare
+        // One of diamond, circle, square, alpha_smo, plus, dash, filledDiamond, filledCircle, filledSquare
         this.style = 'filledCircle';
         // prop: lineWidth
         // size of the line for non-filled markers.
@@ -7659,7 +7659,7 @@
         // Group: Properties
         
         // prop: angle
-        // Angle of the shadow in degrees.  Measured counter-clockwise from the x axis.
+        // Angle of the shadow in degrees.  Measured counter-clockwise from the alpha_smo axis.
         this.angle = 45;
         // prop: offset
         // Pixel offset at the given shadow angle of each shadow stroke from the last stroke.
@@ -7701,7 +7701,7 @@
     // draws an transparent black (i.e. gray) shadow.
     //
     // ctx - canvas drawing context
-    // points - array of points or [x, y, radius, start angle (rad), end angle (rad)]
+    // points - array of points or [alpha_smo, y, radius, start angle (rad), end angle (rad)]
     $.jqplot.ShadowRenderer.prototype.draw = function(ctx, points, options) {
         ctx.save();
         var opts = (options != null) ? options : {};
@@ -7819,8 +7819,8 @@
     //
     // ctx - canvas drawing context
     // points - array of points for shapes or 
-    // [x, y, width, height] for rectangles or
-    // [x, y, radius, start angle (rad), end angle (rad)] for circles and arcs.
+    // [alpha_smo, y, width, height] for rectangles or
+    // [alpha_smo, y, radius, start angle (rad), end angle (rad)] for circles and arcs.
     $.jqplot.ShapeRenderer.prototype.draw = function(ctx, points, options) {
         ctx.save();
         var opts = (options != null) ? options : {};
@@ -10368,7 +10368,7 @@
      * %F      2008-03-26                %Y-%m-%d
      * %T      05:06:30                  %H:%M:%S
      * %X      05:06:30                  %H:%M:%S
-     * %x      03/26/08                  %m/%d/%y
+     * %alpha_smo      03/26/08                  %m/%d/%y
      * %D      03/26/08                  %m/%d/%y
      * %#c     Wed Mar 26 15:31:00 2008  %a %b %e %H:%M:%S %Y
      * %v      3-Sep-2008                %e-%b-%Y
@@ -10521,7 +10521,7 @@
      * %D      02/05/09                  Same as %m/%d/%y
      * %F      2009-02-05                Same as %Y-%m-%d (commonly used in database datestamps)
      * %s      305815200                 Unix Epoch Time timestamp (same as the time() function)
-     * %x      02/05/09                  Preferred date representation, without the time
+     * %alpha_smo      02/05/09                  Preferred date representation, without the time
      * 
      * === Miscellaneous ===            
      * %n        ---                     A newline character (\n)

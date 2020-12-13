@@ -47,7 +47,7 @@
         // Group: Properties
         
         // prop: angle
-        // angle of text, measured clockwise from x axis.
+        // angle of text, measured clockwise from alpha_smo axis.
         this.angle = 0;
         // name of the axis associated with this tick
         this.axis;
@@ -128,7 +128,7 @@
         this._textRenderer.init({fontSize:this.fontSize, fontWeight:this.fontWeight, fontStretch:this.fontStretch, fillStyle:this.textColor, angle:this.getAngleRad(), fontFamily:this.fontFamily});
     };
     
-    // return width along the x axis
+    // return width along the alpha_smo axis
     // will check first to see if an element exists.
     // if not, will return the computed text box width.
     $.jqplot.CanvasAxisLabelRenderer.prototype.getWidth = function(ctx) {

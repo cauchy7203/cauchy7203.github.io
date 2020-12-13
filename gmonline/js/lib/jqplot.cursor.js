@@ -79,7 +79,7 @@
         // will be set to the cursorLegendFormatString, not the default given here.
         this.tooltipFormatString = '%.4P, %.4P';
         // prop: useAxesFormatters
-        // Use the x and y axes formatters to format the text in the tooltip.
+        // Use the alpha_smo and y axes formatters to format the text in the tooltip.
         this.useAxesFormatters = true;
         // prop: tooltipAxisGroups
         // Show position for the specified axes.
@@ -112,7 +112,7 @@
         // draw a horizontal line across the plot which follows the cursor.
         this.showHorizontalLine = false;
         // prop: constrainZoomTo
-        // 'none', 'x' or 'y'
+        // 'none', 'alpha_smo' or 'y'
         this.constrainZoomTo = 'none';
         // // prop: autoscaleConstraint
         // // when a constrained axis is specified, true will
@@ -148,7 +148,7 @@
         $.extend(true, this, options);
     };
     
-    $.jqplot.Cursor.cursorLegendFormatString = '%s x:%s, y:%s';
+    $.jqplot.Cursor.cursorLegendFormatString = '%s alpha_smo:%s, y:%s';
     
     // called with scope of plot
     $.jqplot.Cursor.init = function (target, data, opts){
@@ -445,7 +445,7 @@
                         }
                     }
                             
-                    // if ((c.constrainZoomTo == 'x' && ax.charAt(0) == 'y' && c.autoscaleConstraint) || (c.constrainZoomTo == 'y' && ax.charAt(0) == 'x' && c.autoscaleConstraint)) {
+                    // if ((c.constrainZoomTo == 'alpha_smo' && ax.charAt(0) == 'y' && c.autoscaleConstraint) || (c.constrainZoomTo == 'y' && ax.charAt(0) == 'alpha_smo' && c.autoscaleConstraint)) {
                     //     dp = datapos[ax];
                     //     if (dp != null) {
                     //         axes[ax].max == null;

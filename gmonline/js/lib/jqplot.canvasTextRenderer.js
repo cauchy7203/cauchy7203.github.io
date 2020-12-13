@@ -441,7 +441,7 @@
          ctx.translate(tx, ty);
          ctx.rotate(this.angle);
          ctx.fillText(str, x, y);
-         // ctx.strokeText(str, x, y);
+         // ctx.strokeText(str, alpha_smo, y);
 
          ctx.restore();
     };

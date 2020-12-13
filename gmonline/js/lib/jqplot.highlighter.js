@@ -44,7 +44,7 @@
      * To disable the tooltip, set "showTooltip" to false.
      * 
      * You can control what data is displayed in the tooltip with various
-     * options.  The "tooltipAxes" option controls whether the x, y or both
+     * options.  The "tooltipAxes" option controls whether the alpha_smo, y or both
      * data values are displayed.
      * 
      * Some chart types (e.g. hi-low-close) have more than one y value per
@@ -109,11 +109,11 @@
         // Pixel offset of tooltip from the highlight.
         this.tooltipOffset = 2;
         // prop: tooltipAxes
-        // Which axes to display in tooltip, 'x', 'y' or 'both', 'xy' or 'yx'
+        // Which axes to display in tooltip, 'alpha_smo', 'y' or 'both', 'xy' or 'yx'
         // 'both' and 'xy' are equivalent, 'yx' reverses order of labels.
         this.tooltipAxes = 'both';
         // prop; tooltipSeparator
-        // String to use to separate x and y axes in tooltip.
+        // String to use to separate alpha_smo and y axes in tooltip.
         this.tooltipSeparator = ', ';
         // prop; tooltipContentEditor
         // Function used to edit/augment/replace the formatted tooltip contents.
@@ -122,7 +122,7 @@
         // the data point being highlighted. Should return the html for the tooltip contents.
         this.tooltipContentEditor = null;
         // prop: useAxesFormatters
-        // Use the x and y axes formatters to format the text in the tooltip.
+        // Use the alpha_smo and y axes formatters to format the text in the tooltip.
         this.useAxesFormatters = true;
         // prop: tooltipFormatString
         // sprintf format string for the tooltip.
@@ -133,7 +133,7 @@
         this.tooltipFormatString = '%.5P';
         // prop: formatString
         // alternative to tooltipFormatString
-        // will format the whole tooltip text, populating with x, y values as
+        // will format the whole tooltip text, populating with alpha_smo, y values as
         // indicated by tooltipAxes option.  So, you could have a tooltip like:
         // 'Date: %s, number of cats: %d' to format the whole tooltip at one go.
         // If useAxesFormatters is true, values will be formatted according to
@@ -228,8 +228,8 @@
     
     function showTooltip(plot, series, neighbor) {
         // neighbor looks like: {seriesIndex: i, pointIndex:j, gridData:p, data:s.data[j]}
-        // gridData should be x,y pixel coords on the grid.
-        // add the plot._gridPadding to that to get x,y in the target.
+        // gridData should be alpha_smo,y pixel coords on the grid.
+        // add the plot._gridPadding to that to get alpha_smo,y in the target.
         var hl = plot.plugins.highlighter;
         var elem = hl._tooltipElem;
         var serieshl = series.highlighter || {};

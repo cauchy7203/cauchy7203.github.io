@@ -58,7 +58,7 @@
         // if this is a minor tick.
         this.isMinorTick = false;
         // prop: angle
-        // angle of text, measured clockwise from x axis.
+        // angle of text, measured clockwise from alpha_smo axis.
         this.angle = 0;
         // prop:  markSize
         // Length of the tick marks in pixels.  For 'cross' style, length
@@ -151,7 +151,7 @@
         this._textRenderer.init({fontSize:this.fontSize, fontWeight:this.fontWeight, fontStretch:this.fontStretch, fillStyle:this.textColor, angle:this.getAngleRad(), fontFamily:this.fontFamily});
     };
     
-    // return width along the x axis
+    // return width along the alpha_smo axis
     // will check first to see if an element exists.
     // if not, will return the computed text box width.
     $.jqplot.CanvasAxisTickRenderer.prototype.getWidth = function(ctx) {
