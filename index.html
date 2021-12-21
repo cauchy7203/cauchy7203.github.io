@@ -1,747 +1,125 @@
-<!doctype html>
-<html>
-<head>
-<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-
-<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
-.mac-os-11 { --title-bar-height: 28px; }
-html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit; background-repeat: inherit; }
-iframe { margin: auto; }
-a.url { word-break: break-all; }
-a:active, a:hover { outline: 0px; }
-.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
-#write.first-line-indent p { text-indent: 2em; }
-#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
-#write.first-line-indent li { margin-left: 2em; }
-.for-image #write { padding-left: 8px; padding-right: 8px; }
-body.typora-export { padding-left: 30px; padding-right: 30px; }
-.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
-.typora-export .task-list-item input { pointer-events: none; }
-@media screen and (max-width: 500px) { 
-  body.typora-export { padding-left: 0px; padding-right: 0px; }
-  #write { padding-left: 20px; padding-right: 20px; }
-  .CodeMirror-sizer { margin-left: 0px !important; }
-  .CodeMirror-gutters { display: none !important; }
-}
-#write li > figure:last-child { margin-bottom: 0.5rem; }
-#write ol, #write ul { position: relative; }
-img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
-button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
-input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-*, ::after, ::before { box-sizing: border-box; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
-#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
-p { line-height: inherit; }
-h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
-p { orphans: 4; }
-h1 { font-size: 2rem; }
-h2 { font-size: 1.8rem; }
-h3 { font-size: 1.6rem; }
-h4 { font-size: 1.4rem; }
-h5 { font-size: 1.2rem; }
-h6 { font-size: 1rem; }
-.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
-.hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
-a { cursor: pointer; }
-sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
-sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
-figure > table { margin: 0px; }
-tr { break-inside: avoid; break-after: auto; }
-thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
-table.md-table td { min-width: 32px; }
-.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
-.CodeMirror-linenumber { }
-.CodeMirror { text-align: left; }
-.CodeMirror-placeholder { opacity: 0.3; }
-.CodeMirror pre { padding: 0px 4px; }
-.CodeMirror-lines { padding: 0px; }
-div.hr:focus { cursor: none; }
-#write pre { white-space: pre-wrap; }
-#write.fences-no-line-wrapping pre { white-space: pre; }
-#write pre.ty-contain-cm { white-space: normal; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit; background-repeat: inherit; }
-.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
-#write .md-fences.mock-cm { white-space: pre-wrap; }
-.md-fences.md-fences-with-lineno { padding-left: 0px; }
-#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
-.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
-.CodeMirror-line, twitterwidget { break-inside: avoid; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
-.footnotes + .footnotes { margin-top: 0px; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; }
-li div { padding-top: 0px; }
-blockquote { margin: 1rem 0px; }
-li .mathjax-block, li p { margin: 0.5rem 0px; }
-li blockquote { margin: 1rem 0px; }
-li { margin: 0px; position: relative; }
-blockquote > :last-child { margin-bottom: 0px; }
-blockquote > :first-child, li > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
-#write .footnote-line { white-space: pre-wrap; }
-@media print { 
-  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
-  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
-  .typora-export * { -webkit-print-color-adjust: exact; }
-  .typora-export #write { break-after: avoid; }
-  .typora-export #write::after { height: 0px; }
-  .is-mac table { break-inside: avoid; }
-  .typora-export-show-outline .typora-export-sidebar { display: none; }
-}
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; }
-p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
-#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
-p > .md-image:only-child { display: inline-block; width: 100%; }
-#write .MathJax_Display { margin: 0.8em 0px 0px; }
-.md-math-block { width: 100%; }
-.md-math-block:not(:empty)::after { display: none; }
-.MathJax_ref { fill: currentcolor; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
-.md-task-list-item { position: relative; list-style-type: none; }
-.task-list-item.md-task-list-item { padding-left: 0px; }
-.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
-.math { font-size: 1rem; }
-.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
-.md-toc-content { position: relative; margin-left: 0px; }
-.md-toc-content::after, .md-toc::after { display: none; }
-.md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
-.md-toc-inner:hover { text-decoration: underline; }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
-.md-toc-h2 .md-toc-inner { margin-left: 2em; }
-.md-toc-h3 .md-toc-inner { margin-left: 4em; }
-.md-toc-h4 .md-toc-inner { margin-left: 6em; }
-.md-toc-h5 .md-toc-inner { margin-left: 8em; }
-.md-toc-h6 .md-toc-inner { margin-left: 10em; }
-@media screen and (max-width: 48em) { 
-  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
-  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
-  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
-  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
-}
-a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
-.footnote-line a:not(.reversefootnote) { color: inherit; }
-.md-attr { display: none; }
-.md-fn-count::after { content: "."; }
-code, pre, samp, tt { font-family: var(--monospace); }
-kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
-code { text-align: left; }
-a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; }
-.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
-[lang="mermaid"] .node text { font-size: 1rem; }
-table tr th { border-bottom-width: 0px; }
-video { max-width: 100%; display: block; margin: 0px auto; }
-iframe { max-width: 100%; width: 100%; border: none; }
-.highlight td, .highlight tr { border: 0px; }
-mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); }
-.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
-.md-expand mark .md-meta { opacity: 0.3 !important; }
-mark .md-meta { color: rgb(0, 0, 0); }
-@media print { 
-  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
-}
-.md-diagram-panel .messageText { stroke: none !important; }
-.md-diagram-panel .start-state { fill: var(--node-fill); }
-.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
-.md-fences.md-fences-math { font-size: 1em; }
-.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
-.md-fences-advanced:not(.md-focus) { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit; background-repeat: inherit; }
-.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
-.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
-.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
-.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
-@media screen and (max-width: 1024px) { 
-  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
-}
-@media screen and (max-width: 800px) { 
-  .typora-export-sidebar { display: none; }
-}
-.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
-.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
-.outline-content strong { font-weight: 400; }
-.outline-expander { width: 1rem; height: 1.428571429rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
-.outline-expander::before { content: ''; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
-.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
-.outline-expander:hover::before { content: ''; }
-.outline-h1 > .outline-item { padding-left: 0px; }
-.outline-h2 > .outline-item { padding-left: 1em; }
-.outline-h3 > .outline-item { padding-left: 2em; }
-.outline-h4 > .outline-item { padding-left: 3em; }
-.outline-h5 > .outline-item { padding-left: 4em; }
-.outline-h6 > .outline-item { padding-left: 5em; }
-.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
-.outline-label:hover { text-decoration: underline; }
-.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
-.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left-width: 28px; border-left-style: solid; border-left-color: transparent; border-right-width: 28px; border-right-style: solid; border-right-color: transparent; }
-.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
-.outline-item-open > .outline-item > .outline-expander::before { content: ''; }
-.outline-children { display: none; }
-.info-panel-tab-wrapper { display: none; }
-.outline-item-open > .outline-children { display: block; }
-.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
-.typora-export .outline-item:hover { margin-right: -8px; border-right-width: 8px; border-right-style: solid; border-right-color: transparent; }
-.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
-.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: '−'; }
-.typora-export-collapse-outline .outline-children { display: none; }
-.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
-.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
-.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
-.md-inline-math-container mjx-container { zoom: 0.95; }
-
-
-:root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
-}
-
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
-}
-
-body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
-}
-
-#write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
-}
-
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
-}
-
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
-}
-
-#write > ul:first-child,
-#write > ol:first-child{
-    margin-top: 30px;
-}
-
-a {
-    color: #4183C4;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    line-height: 1.4;
-    cursor: text;
-}
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor,
-h4:hover a.anchor,
-h5:hover a.anchor,
-h6:hover a.anchor {
-    text-decoration: none;
-}
-h1 tt,
-h1 code {
-    font-size: inherit;
-}
-h2 tt,
-h2 code {
-    font-size: inherit;
-}
-h3 tt,
-h3 code {
-    font-size: inherit;
-}
-h4 tt,
-h4 code {
-    font-size: inherit;
-}
-h5 tt,
-h5 code {
-    font-size: inherit;
-}
-h6 tt,
-h6 code {
-    font-size: inherit;
-}
-h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
-}
-
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
-    }
-
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
-    }
-}*/
-
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
-}
-li>ol,
-li>ul {
-    margin: 0 0;
-}
-hr {
-    height: 2px;
-    padding: 0;
-    margin: 16px 0;
-    background-color: #e7e7e7;
-    border: 0 none;
-    overflow: hidden;
-    box-sizing: content-box;
-}
-
-li p.first {
-    display: inline-block;
-}
-ul,
-ol {
-    padding-left: 30px;
-}
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
-}
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
-}
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: #777777;
-}
-blockquote blockquote {
-    padding-right: 0;
-}
-table {
-    padding: 0;
-    word-break: initial;
-}
-table tr {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 0;
-}
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
-}
-table th {
-    font-weight: bold;
-    border: 1px solid #dfe2e5;
-    border-bottom: 0;
-    margin: 0;
-    padding: 6px 13px;
-}
-table td {
-    border: 1px solid #dfe2e5;
-    margin: 0;
-    padding: 6px 13px;
-}
-table th:first-child,
-table td:first-child {
-    margin-top: 0;
-}
-table th:last-child,
-table td:last-child {
-    margin-bottom: 0;
-}
-
-.CodeMirror-lines {
-    padding-left: 4px;
-}
-
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
-}
-
-.md-fences,
-code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
-}
-
-code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
-}
-
-.md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
-}
-
-
-.md-task-list-item > input {
-  margin-left: -1.3em;
-}
-
-@media print {
-    html {
-        font-size: 13px;
-    }
-    table,
-    pre {
-        page-break-inside: avoid;
-    }
-    pre {
-        word-wrap: break-word;
-    }
-}
-
-.md-fences {
-	background-color: #f8f8f8;
-}
-#write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
-    line-height: 1.45;
-    background-color: #f7f7f7;
-    border: 0;
-    border-radius: 3px;
-    color: #777777;
-    margin-top: 0 !important;
-}
-
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
-}
-
-.md-mathjax-midline {
-    background: #fafafa;
-}
-
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
-}
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
-    color: inherit;
-}
-
-.md-tag {
-    color: #a7a7a7;
-    opacity: 1;
-}
-
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
-}
-
-.sidebar-tabs {
-    border-bottom: none;
-}
-
-#typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
-}
-
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
-}
-
-/** focus mode */
-.on-focus-mode blockquote {
-    border-left-color: rgba(85, 85, 85, 0.12);
-}
-
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
-}
-
-.file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
-    visibility: visible;
-}
-
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
-}
-
-.md-lang {
-    color: #b4654d;
-}
-
-/*.html-for-mac {
-    --item-hover-bg-color: #E6F0FE;
-}*/
-
-#md-notification .btn {
-    border: 0;
-}
-
-.dropdown-menu .divider {
-    border-color: #e5e5e5;
-    opacity: 0.4;
-}
-
-.ty-preferences .window-content {
-    background-color: #fafafa;
-}
-
-.ty-preferences .nav-group-item.active {
-    color: white;
-    background: #999;
-}
-
-.menu-item-container a.menu-style-btn {
-    background-color: #f5f8fa;
-    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
-}
-
-
-
-mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-  min-height: 1px;
-  min-width: 1px;
-}
-
-mjx-container[jax="SVG"] > svg a {
-  fill: blue;
-  stroke: blue;
-}
-
-mjx-assistive-mml {
-  position: absolute !important;
-  top: 0px;
-  left: 0px;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 1px 0px 0px 0px !important;
-  border: 0px !important;
-  display: block !important;
-  width: auto !important;
-  overflow: hidden !important;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-mjx-assistive-mml[display="block"] {
-  width: 100% !important;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][display="true"][width="full"] {
-  display: flex;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > g > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
-  stroke-width: 3;
-}
-
-g[data-mml-node="xypic"] path {
-  stroke-width: inherit;
-}
-
-.MathJax g[data-mml-node="xypic"] path {
-  stroke-width: inherit;
-}
-mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
-							stroke-width: 0;
-						} @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}}
-</style><title>马新_个人学术简历</title>
-</head>
-<body class='typora-export'><div class='typora-export-content'>
-<div id='write'  class=''><script type="text/javascript" src="2html/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="2html/2html.js"></script><link rel="stylesheet" type="text/css" href="2html/style.css"><h2 id='马-新-博士副教授硕士生导师'><span>马 新 (博士、副教授、硕士生导师) </span></h2><div align="left"><img src="./image/profile.png"> </div> <h2 id='基本信息'><span>基本信息</span></h2><ul><li><p><strong><span>工作单位：</span></strong><span>西南科技大学</span></p></li><li><p><strong><span>邮箱:</span></strong><span> </span><a href='mailto:maxin@swust.edu.cn' target='_blank' class='url'>maxin@swust.edu.cn</a></p><p><a href='https://scholar.google.com/citations?user=WUwRi7QAAAAJ&amp;amp;amp;hl=en'><span>Google Page</span></a><span> ,</span><a href='https://www.researchgate.net/profile/Xin_Ma58'><span>Research Gate</span></a><span> </span></p></li><li><p><strong><span>个人主页：</span></strong><a href='https://maxin.website/' target='_blank' class='url'>https://maxin.website/</a></p></li></ul><h2 id='个人简介'><span>个人简介</span></h2><p><span>马新（1989-03），男，汉族。2016年毕业于西南石油大学石油与天然气工程（石油工程计算技术）专业（教育部第四轮评估A+学科），获工学博士学位，比利时鲁汶大学(KU Leuven)访问学者。长期从事灰色系统、机器学习及其在能源工程中的应用和软件开发的研究工作。近年来主持</span><strong><span>国家自然科学基金、教育部人文社科研究项目、全国统计研究项目、国家重点实验室开放基金项目各1项</span></strong><span>；</span><strong><span>共发表SCI论文70余篇</span></strong><span>，</span><strong><span>累计影响因子超过100</span></strong><span>，论著被引800余次。其中第一作者SCI论文16篇（累计影响因子</span><span>&gt;</span><span>40），通讯作者SCI论文17篇(累计影响因子</span><span>&gt;</span><span>30)。</span><strong><span>第一作者</span></strong><span>论文中</span><strong><span>5篇进入ESI全球前1‰之列（Hot Paper）</span></strong><span>,</span><strong><span>10篇进入ESI全球前1%高被引论文之列</span></strong><span>，</span><strong><span>通讯作者论文4篇进入ESI全球前1%高被引论文之列,3篇进入ESI全球前1‰之列（Hot Paper）</span></strong><span>，另有7篇合著论文进入ESI高被引论文, 4篇论文进入Hot Paper之列；登记软件著作权1项。2018年分别获得GSUA国际学术会议优秀会议论文奖，全国石油化工行业优秀论文三等奖各1项。现担任</span><strong><span>中国优选法统筹法与经济数学研究会灰色系统专业委员会理事，国际SCI杂志 Journal of Grey System 编委，Mathematical Problems in Engineering 特刊客座编辑(Energy Time Series Forecasting)，IEEE TNNLS, Applied Energy, Energy Economics 等国际顶级期刊审稿人。2021年11月入选全球高被引科学家(</span><a href='https://recognition.webofscience.com/awards/highly-cited/2021/'><span>Clarivate官网发布</span></a><span>)。</span></strong></p><h2 id='学习及工作经历'><span>学习及工作经历 </span></h2><ul><li><span>2020/07--- 至今, 西南科技大学，硕士研究生导师（工商管理）</span></li><li><span>2019/12--- 至今, 西南科技大学，副教授</span></li><li><span>2019/04---2019/07, ESAT, KU Leuven (鲁汶大学), 访问学者，合作导师 Johan Suykens</span></li><li><span>2016/07--- 2019/12, 西南科技大学，讲师</span></li><li><span>2013/09---2016/06, 西南石油大学，石油工程计算技术，工学博士</span></li><li><span>2010/09---2013/06, 西南石油大学，石油工程计算技术，工学硕士</span></li><li><span>2006/09---2010/06, 西华大学，数学与应用数学，理学学士</span></li></ul><h2 id='主要研究方向'><span>主要研究方向 </span></h2><ul><li><span>灰色系统</span></li><li><span>机器学习</span></li><li><span>智能优化算法</span></li><li><span>能源预测</span></li><li><span>软件工程</span></li></ul><h2 id='主讲课程'><span>主讲课程 </span></h2><p><span>本专科：《高等数学》(本、专)、《算法设计与分析》(本)、《计量经济学》(本)、《机器学习》(本)、《经济数学》(专)</span></p><p><span>研究生：《模糊数学》</span></p><p><span>全校公选课（课程负责人）：《灰色预测建模原理及应用》</span></p><h2 id='主持和参与科研项目情况'><span>主持和参与科研项目情况 </span></h2><ul><li><strong><span>主持科研项目：</span></strong></li><li><span>(</span><span>1</span><span>)</span><span> 2020年1月---2022年12月   </span><strong><span>融合深度核学习的灰色预测建模方法及其应用研究</span></strong><span>，国家自然科学基金青年基金，</span><strong><span>主持</span></strong><span>。  </span></li><li><span>(</span><span>2</span><span>)</span><span> 2019年3月---至今 </span><strong><span>基于灰色小波核学习的我国天然气短期安全消费峰值预测预警研究</span></strong><span>，教育部人文社科基金青年基金，</span><strong><span>主持</span></strong><span>。</span></li><li><span>(</span><span>3</span><span>)</span><span> 2018年9月---至今 </span><strong><span>灰色深度神经网络及在能源消费废气排放预测中的应用，</span></strong><span>全国统计科学研究项目，</span><strong><span>主持</span></strong><span>。</span></li><li><span>(</span><span>4</span><span>)</span><span> 2017年12月---至今 </span><strong><span>基于 Arps 递减和进化超限学习机的油藏产量预测分析研究, </span></strong><span>油气藏地质及开发工程国家重点实验室开放基金，</span><strong><span>主持</span></strong><span>。</span></li></ul><ul><li><strong><span>参与科研项目：</span></strong></li><li><span>(</span><span>1</span><span>)</span><span> 2011年9月---2014年4月 </span><strong><span>油气藏工程方法软件包研制与开发应用</span></strong><span>，中石油华北油田公司校企合作项目，经费：102万元，主研人员。</span></li><li><span>(</span><span>2</span><span>)</span><span> 2012年5月---2012年12月 </span><strong><span>修井作业施工效果评价系统研究</span></strong><span>，中石油大港油田公司合作项目，经费：53万元，主研人员。</span></li><li><span>(</span><span>3</span><span>)</span><span> 2011年10月---2012年9月 </span><strong><span>长庆油田采油作业区开发管理考评系统研究</span></strong><span>，中石油长庆油田公司合作项目，经费：70万元，主研人员。</span></li><li><span>(</span><span>4</span><span>)</span><span> 2010年11月---2012年4月 </span><strong><span>苏丹 1/2/4 1/2/4区控水稳油综合治理技术研究</span></strong><span> .中石油大庆田勘探开发研究院项目, 经费：80万元， 参与研究。</span></li></ul><h2 id='审稿期刊'><span>审稿期刊</span></h2><p><span>IEEE Transactions on Neural Networks and Learning Systems, Applied Energy, Applied Mathematical Modelling, Energy Economics, Knowledge-Based Systems, Energy, Energy Economics, Communications in Nonlinear Science and Numerical Simulation, Engineering Applications of Artificial Intelligence, Energy Reports, Sustainable Production and Consumption, Physica A: Statistical Mechanics and its Applications, PLOS ONE, Sensors, Journal of Grey System, Grey Systems-Theory and Application, Journal of Ambient Intelligence &amp; Humanized Computing, IEEE Access, Kybernetes, AIMS Mathematics, </span><em><span>etc.</span></em><span>.</span></p><h2 id='发表论著时间降序）'><span>发表论著（时间降序）</span></h2><p><strong><span>注</span></strong><span>：</span><a href='https://www.researchgate.net/profile/Xin_Ma58'><span>ResearchGate主页</span></a><span>持续更新论文信息和大部分全文！</span><a href='https://maxin.website/publications/'><span>查看完整论著列表</span></a><span> (论文分区按发表当年最高分区统计)。</span></p><h4 id='第一作者论文'><span>第一作者论文 </span></h4><ol start='' ><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Xie Mei, and Johan AK Suykens. &quot;A novel neural grey system model with Bayesian regularization and its applications.&quot; Neurocomputing, 2021, 456(7): 61-75.  (</span><strong><span>SCI, 二区</span></strong><span>）</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Wenqing Wu, Bo Zeng, Yong Wang, Xinxing Wu. </span><span>&quot;</span><span>The conformable fractional grey system model</span><span>&quot;</span><span>, ISA Transactions, 2020, 96：255-271． (</span><strong><span>SCI, 一区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</span></strong><span>)</span></li><li><strong><span>Xin Ma</span></strong><span>, Wenqing Wu</span><span>*</span><span>, and Yuanyuan Zhang. Improved GM (1, 1) model based on Simpson formula and its applications. Journal of Grey system, 2019, 31(4): 33-46. (</span><strong><span>SCI, 四区, ESI全球前1%高被引论文</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Mei Xie, Wenqing Wu, Bo Zeng, Yong Wang, and Xinxing Wu. </span><span>&quot;</span><span>The novel fractional discrete multivariate grey system model and its applications.</span><span>&quot;</span><span> Applied Mathematical Modelling 70 (2019): 402-424. (</span><strong><span>SCI, 二区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Xie Mei, Wenqing Wu, Xinxing Wu and Bo Zeng. &quot;A novel fractional time delayed grey model with Grey Wolf Optimizer and its applications in forecasting the natural gas and coal consumption in Chongqing China&quot;. Energy 2019, 178, 487-507. (</span><strong><span>SCI, 一区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Zhibin Liu, and Yong Wang. </span><span>&quot;</span><span>Application of a novel nonlinear multivariate grey Bernoulli model to predict the tourist income of China.</span><span>&quot;</span><span> Journal of Computational and Applied Mathematics , 2019, vol. 347, pp. 84-94. (</span><strong><span>SCI, 二区，ESI全球前1%高被引论文,ESI全球前0.1%Hot paper</span></strong><span>)</span></li><li><strong><span>Xin Ma</span></strong><span>. A brief introduction to the Grey Machine Learning, Journal of Grey System, 2019 31 (1), 1-12. (</span><strong><span>SCI, 四区，ESI全球前1%高被引论文，ESI全球前0.1%Hot paper, GSUA国际会议优秀论文</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z. Liu, The kernel-based nonlinear multivariate grey model, Applied Mathematical Modelling, 56, 2018, 217-238. (</span><strong><span>SCI, 一区, ESI全球前1%高被引论文</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z.B. Liu. Predicting the oil production using the novel multivariate nonlinear model based on Arps decline model and kernel method</span><span>[</span><span>J</span><span>]</span><span>. Neural Computing and Applications, 2018, 29(2): 579-591. </span><strong><span>(SCI, 二区, ESI全球前1%高被引论文，全国石油化工自动化行业优秀论文三等奖)</span></strong></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Y. S. Hu, Z.B. Liu. A novel kernel regularized nonhomogeneous grey model and its applications</span><span>[</span><span>J</span><span>]</span><span>. Communications in Nonlinear Science &amp; Numerical Simulation, 2017, 48: 51-62. (</span><strong><span>SCI, 一区，ESI全球前3%扩展版高被引论文</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z.B. Liu. Application of a novel time-delayed polynomial grey model to predict the natural gas consumption in China</span><span>[</span><span>J</span><span>]</span><span>. Journal of Computational and Applied Mathematics, 2017, 324: 17-24. (</span><strong><span>SCI, 二区，ESI全球前1%高被引论文</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z. B. Liu. The GMC(1, n) model with optimized parameters and its applications</span><span>[</span><span>J</span><span>]</span><span>. Journal of Grey System, 2017,29(4): 122-138.(</span><strong><span>SCI， 四区, ESI全球前1%高被引论文)</span></strong></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z. B. Liu. Research on the novel recursive discrete multivariate grey prediction model and its applications</span><span>[</span><span>J</span><span>]</span><span>. Applied Mathematical Modelling, 2016, 40(7): 4876-4890. </span><strong><span>(SCI, 一区</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>. Research on a Novel Kernel Based Grey Prediction Model and Its Applications</span><span>[</span><span>J</span><span>]</span><span>. Mathematical Problems in Engineering, 2016, (2016):1-9. (</span><strong><span>SCI, 四区</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z.B. Liu. Predicting the oil field production using the novel discrete GM (1, N) model</span><span>[</span><span>J</span><span>]</span><span>. The Journal of Grey System, 2015, 27(4): 63-74. (</span><strong><span>SCI, 四区</span></strong><span>)</span></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z.B. Liu, Wei Y, Kong X H. A Novel Kernel Regularized Nonlinear GMC (1, n) Model and Its Application</span><span>[</span><span>J</span><span>]</span><span>. Journal of Grey System, 2016, 28(3): 97-109. </span><strong><span>(SCI, 四区)</span></strong></li><li><strong><span>Xin Ma</span><span>*</span></strong><span>, Z.B. Liu, Chen Y. Optimizing the Grey GM(1,N) Model by Rebuilding All the Back Ground Values</span><span>[</span><span>J</span><span>]</span><span>. Journal of Systems Science &amp; Information, 2014, 2(6):543-552.</span></li></ol><h4 id='通讯作者论文'><span>通讯作者论文</span></h4><ol start='' ><li><span>Yubin Cai, </span><strong><span>Xin Ma*</span></strong><span>. A novel ensemble learning-based grey model for electricity supply forecasting in China, AIMS Mathematics, 2021, 6(11): 12339-12358.  </span><a href='https://doi.org/10.3934/math.2021714' target='_blank' class='url'>https://doi.org/10.3934/math.2021714</a><span> (</span><strong><span>SCI, 三区</span></strong><span>) </span></li><li><span>Lang Yu, </span><strong><span>Xin Ma*</span></strong><span>, Wenqing Wu, Xiwang Xiang, Yong Wang, Bo Zeng. Application of a novel time-delayed power-driven grey model to forecast photovoltaic power generation in the Asia-Pacific region, Sustainable Energy Technologies and Assessments 44, 2021, 100968. </span><a href='https://doi.org/10.1016/j.seta.2020.100968' target='_blank' class='url'>https://doi.org/10.1016/j.seta.2020.100968</a><span> (</span><strong><span>SCI, 二区</span></strong><span>)</span></li><li><span>Lang Yu, </span><strong><span>Xin Ma*</span></strong><span>, Wenqing Wu, Yong Wang, Bo Zeng. A novel Elastic Net-based NGBMC (1, n) model with multi-objective optimization for nonlinear time series forecasting. Communications in Nonlinear Science and Numerical Simulation, 2021, 105696. </span><a href='https://doi.org/10.1016/j.cnsns.2021.105696' target='_blank' class='url'>https://doi.org/10.1016/j.cnsns.2021.105696</a><span> (</span><strong><span>SCI, 一区</span></strong><span>)</span></li><li><span>Hongfang Lu, </span><strong><span>Xin Ma*</span></strong><span>, Minda Ma, Senlin Zhu. Energy price prediction using data-driven models: A decade review, Computer Science Review 39, 2021, 100356. </span><a href='https://doi.org/10.1016/j.cosrev.2020.100356' target='_blank' class='url'>https://doi.org/10.1016/j.cosrev.2020.100356</a><span> (</span><strong><span>SCI一区</span></strong><span>)</span></li><li><span>Xiwang Xiang,  </span><strong><span>Xin Ma*</span></strong><span>, Minda Ma, Wenqing Wu, Lang Yu. Research and application of novel Euler polynomial-driven grey model for short-term PM10 forecasting. Grey Systems: Theory and Application, 2021, 11(3), 498-517.  </span><a href='https://doi.org/10.1108/GS-02-2020-0023' target='_blank' class='url'>https://doi.org/10.1108/GS-02-2020-0023</a><span>. (</span><strong><span>SCI, 二区</span></strong><span>)</span></li><li><span>Wenqing Wu, </span><strong><span>Xin Ma*</span></strong><span>, Bo Zeng, Yuanyuan Zhang, Wanpeng Li. Forecasting short-term solar energy generation in Asia Pacific using a nonlinear grey Bernoulli model with time power term. Energy &amp; Environment, 2020,  0958305X20960700. </span><a href='https://doi.org/10.1177%2F0958305X20960700'><span>https://doi.org/10.1177/0958305X20960700</span></a><span> (</span><strong><span>SSCI</span></strong><span>)</span></li><li><span>Xiwang Xiang, </span><strong><span>Xin Ma*</span></strong><span>, Yizhu Fang, Wenqing Wu, Gaoxun Zhang. A novel hyperbolic time-delayed grey model with Grasshopper Optimization Algorithm and its applications, Ain Shams Engineering Journal, 2020, </span><a href='https://doi.org/10.1016/j.asej.2020.07.019' target='_blank' class='url'>https://doi.org/10.1016/j.asej.2020.07.019</a><span>. (</span><strong><span>SCI, 三区</span></strong><span>)</span></li><li><span>Yu Hu, </span><strong><span>Xin Ma*</span></strong><span>, Wanpeng Li, Wenqing Wu, Daoxing Tu.  Forecasting manufacturing industrial natural gas consumption of China using a novel time-delayed fractional grey model with multiple fractional order. Computational and Applied Mathematics, 39, 263 (2020). </span><a href='https://doi.org/10.1007/s40314-020-01315-3' target='_blank' class='url'>https://doi.org/10.1007/s40314-020-01315-3</a><span> .(</span><strong><span>SCI, 三区</span></strong><span>)</span></li><li><span>Hongfang Lu, Feifei Cheng, </span><strong><span>Xin Ma*</span></strong><span>, Gang Hu.  Short-term prediction of building energy consumption employing an improved extreme gradient boosting model: A case study of an intake tower, Energy, 2020, 117756.(</span><strong><span>SCI, 一区</span></strong><span>)</span></li><li><span>Wenqing Wu, </span><strong><span>Xin Ma</span></strong><span>*</span><span>, Bo Zeng, Wangyong Lv, Yong Wang, Wanpeng Li. A novel Grey Bernoulli model for short-term natural gas consumption forecasting, Applied Mathematical Modelling, 2020, 84: 393-404.(</span><strong><span>SCI, 二区</span></strong><span>)</span></li><li><span>Wenqing Wu, </span><strong><span>Xin Ma</span></strong><span>*</span><span>, Yuanyuan Zhang, Wanpeng Li, Yong Wang. A novel conformable fractional non-homogeneous grey model for forecasting carbon dioxide emissions of BRICS countries, Science of the Total Environment, 2020. (</span><strong><span>SCI, 一区, ESI全球前1%高被引论文，ESI全球前0.1%Hot paper</span></strong><span>)</span></li><li><span>Jie Xia, </span><strong><span>Xin Ma</span><span>*</span></strong><span>, Wenqing Wu, Baolian Huang, Wanpeng Li. Application of a new information priority accumulated grey model with time power to predict short-term wind turbine capacity, Journal of Cleaner Production, 2020, 244, Aricle ID: 118573. (</span><strong><span>SCI/SSCI, 一区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</span></strong><span>)</span></li><li><span>Wenqing Wu, </span><strong><span>Xin Ma</span><span>*</span></strong><span>, Bo Zeng, Yong Wang, and Wei Cai. Forecasting short-term renewable energy consumption of China using a novel fractional nonlinear grey Bernoulli model. Renewable energy 140 (2019): 70-87. (</span><strong><span>SCI, 二区, ESI全球前1%高被引论文，ESI全球前0.1%Hot paper</span></strong><span>)</span></li><li><span>Wenqing Wu, </span><strong><span>Xin Ma</span><span>*</span></strong><span>, Bo Zeng, Yong Wang, and Wei Cai. </span><span>&quot;</span><span>Application of the novel fractional grey model FAGMO (1, 1, k) to predict China</span><span>&#39;</span><span>s nuclear energy consumption.</span><span>&quot;</span><span> Energy 165 (2018): 223-234. (</span><strong><span>SCI, 一区, ESI全球前1%高被引论文</span></strong><span>)</span></li><li><span>L.C. Kong, </span><strong><span>Xin Ma</span><span>*</span></strong><span>, Comparison study on the nonlinear parameter optimization of nonlinear grey Bernoulli model NGBM(1,1) between intelligent optimizers</span><span>[</span><span>J</span><span>]</span><span>. Grey Systems: Theory and Application, 2018, 8(2): 210-226.(</span><strong><span>SCI</span></strong><span>)</span></li><li><span>Wenqing Wu, </span><strong><span>Xin Ma</span></strong><span>*</span><span>, Yong Wang, Yuanyuan Zhang, and Bo Zeng. </span><span>&quot;</span><span>Research on a novel fractional GM (α, n) model and its applications.</span><span>&quot;</span><span> Grey Systems: Theory and Application 9, no. 3 (2019): 356-373. (</span><strong><span>SCI</span></strong><span>)</span></li><li><span>Wenqing Wu, </span><strong><span>Xin Ma</span><span>*</span></strong><span>, Yuanyuan Zhang, Yong Wang, and Xinxing Wu. </span><span>&quot;</span><span>Analysis of novel FAGM (1, 1, </span><mjx-container class="MathJax" jax="SVG" style="position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="2.028ex" height="1.553ex" role="img" focusable="false" viewBox="0 -675.5 896.5 686.5" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="vertical-align: -0.025ex;"><defs><path id="MJX-2-TEX-I-1D461" d="M26 385Q19 392 19 395Q19 399 22 411T27 425Q29 430 36 430T87 431H140L159 511Q162 522 166 540T173 566T179 586T187 603T197 615T211 624T229 626Q247 625 254 615T261 596Q261 589 252 549T232 470L222 433Q222 431 272 431H323Q330 424 330 420Q330 398 317 385H210L174 240Q135 80 135 68Q135 26 162 26Q197 26 230 60T283 144Q285 150 288 151T303 153H307Q322 153 322 145Q322 142 319 133Q314 117 301 95T267 48T216 6T155 -11Q125 -11 98 4T59 56Q57 64 57 83V101L92 241Q127 382 128 383Q128 385 77 385H26Z"></path><path id="MJX-2-TEX-I-1D6FC" d="M34 156Q34 270 120 356T309 442Q379 442 421 402T478 304Q484 275 485 237V208Q534 282 560 374Q564 388 566 390T582 393Q603 393 603 385Q603 376 594 346T558 261T497 161L486 147L487 123Q489 67 495 47T514 26Q528 28 540 37T557 60Q559 67 562 68T577 70Q597 70 597 62Q597 56 591 43Q579 19 556 5T512 -10H505Q438 -10 414 62L411 69L400 61Q390 53 370 41T325 18T267 -2T203 -11Q124 -11 79 39T34 156ZM208 26Q257 26 306 47T379 90L403 112Q401 255 396 290Q382 405 304 405Q235 405 183 332Q156 292 139 224T121 120Q121 71 146 49T208 26Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msup"><g data-mml-node="mi"><use data-c="1D461" xlink:href="#MJX-2-TEX-I-1D461"></use></g><g data-mml-node="mi" transform="translate(394,363) scale(0.707)"><use data-c="1D6FC" xlink:href="#MJX-2-TEX-I-1D6FC"></use></g></g></g></g></svg><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>t</mi><mi>α</mi></msup></math></mjx-assistive-mml></mjx-container><script type="math/tex">t^α</script><span>) model to forecast health expenditure of China.</span><span>&quot;</span><span> Grey Systems: Theory and Application 9, no. 2 (2019): 232-250. (</span><strong><span>SCI</span></strong><span>)</span></li><li><span>夏杰,  </span><strong><span>马新*</span></strong><span>, 吴文青. 基于Simpson公式改进的FAGM(1,1)模型及其应用研究，中国管理科学, 2021,29(05): 240-248.</span><strong><span>（自然科学基金委A类重要期刊）</span></strong></li></ol><h2 id='获奖情况'><span>获奖情况</span></h2><ol start='' ><li><span>2021年11月，</span><strong><span>全球高被引科学家</span></strong><span>（交叉学科领域）</span></li><li><span>2018年12月石油和化工自动化行业科学技术奖（</span><strong><span>优秀科技论文奖，三等奖</span></strong><span>）</span></li><li><span>2018年4月 灰色系统国际学术会议</span><strong><span>优秀会议论文</span></strong></li><li><span>2017年4月 《Applied Mathematical Modelling》</span><strong><span>杰出评审贡献奖</span></strong></li><li><span>2017，2018，2019年5月 蓝桥杯全国信息技术大赛</span><strong><span>优秀指导教师</span></strong><span>（3次）</span></li><li><span>2014年12月，2016年5月 西南石油大学&quot;</span><strong><span>校长奖学金</span></strong><span>&quot; 校级（2次）</span></li><li><span>2015年12月 &quot;</span><strong><span>研究生国家奖学金</span></strong><span>&quot;，西南石油大学&quot;</span><strong><span>二等学业奖学金</span></strong><span>&quot;，研究生&quot;</span><strong><span>十大学术成就奖</span></strong><span>&quot;</span></li><li><span>2013年6月 西南石油大学&quot;</span><strong><span>优秀硕士毕业论文</span></strong><span>&quot; 校级</span></li><li><span>2010年4月 西华大学</span><strong><span>三等奖学金</span></strong><span>、西华大学&quot;</span><strong><span>院级三好学生</span></strong><span>&quot; 院级</span></li><li><span>2008年12月 西华大学</span><strong><span>优秀社团干部</span></strong><span> 校级</span></li><li><span>2008年4月西华大学</span><strong><span>英语风采大赛演讲比赛</span></strong><span>&quot;三等奖&quot;，&quot;最佳机智奖&quot; 校级</span></li><li><span>2007年 4月 西华大学</span><strong><span>二等奖学金</span></strong><span>、西华大学&quot;</span><strong><span>校级三好学生</span></strong><span>&quot; 校级</span></li></ol><h2 id='学术兼职'><span>学术兼职</span></h2><ol start='' ><li><span>国际SCI期刊《Journal of Grey System》  </span><strong><span>编委</span></strong></li><li><span>中国优选法统筹法与经济数学研究会 灰色系统专业委员会  </span><strong><span>理事</span></strong></li><li><span>Mathematical Problems in Engineering  </span><strong><span>特刊客座编辑</span></strong><span> (Energy Time Series Forecasting)</span></li></ol><h2 id='技术技能'><span>技术技能</span></h2><ol start='' ><li><span>精通或熟练程序语言：Matlab, C, C</span><span>#</span><span> (MVC), Python, Javascript</span></li><li><span>数据库技术：PLSQL(Oracle), MySQL, MS Access</span></li><li><span>全国软件专业人才高级证书(C</span><span>\</span><span>C++)</span></li><li><span>英语水平：CET 6 (503)， BEC Higher B2</span></li></ol><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" style="" href="#马-新-博士副教授硕士生导师">马 新 (博士、副教授、硕士生导师) </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n6"><a class="md-toc-inner" style="" href="#基本信息">基本信息</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n16"><a class="md-toc-inner" style="" href="#个人简介">个人简介</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n18"><a class="md-toc-inner" style="" href="#学习及工作经历">学习及工作经历 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n34"><a class="md-toc-inner" style="" href="#主要研究方向">主要研究方向 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n46"><a class="md-toc-inner" style="" href="#主讲课程">主讲课程 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n50"><a class="md-toc-inner" style="" href="#主持和参与科研项目情况">主持和参与科研项目情况 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n75"><a class="md-toc-inner" style="" href="#审稿期刊">审稿期刊</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n77"><a class="md-toc-inner" style="" href="#发表论著时间降序）">发表论著（时间降序）</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n79"><a class="md-toc-inner" style="" href="#第一作者论文">第一作者论文 </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n115"><a class="md-toc-inner" style="" href="#通讯作者论文">通讯作者论文</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n153"><a class="md-toc-inner" style="" href="#获奖情况">获奖情况</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n177"><a class="md-toc-inner" style="" href="#学术兼职">学术兼职</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n185"><a class="md-toc-inner" style="" href="#技术技能">技术技能</a></span></p></div><p>&nbsp;</p></div></div>
-</body>
-</html>
+<script type="text/javascript" src="2html/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="2html/2html.js"></script>
+<p><link rel="stylesheet" type="text/css" href="2html/style.css"></p>
+<h2 id="马-新-博士副教授硕士生导师">马 新 (博士、副教授、硕士生导师)</h2>
+<div data-align="left">
+<img  src="./image/profile.png"/>
+</div>
+<h2 id="基本信息">基本信息</h2>
+<ul>
+<li><p><strong>工作单位：</strong> 西南科技大学</p></li>
+<li><p><strong>邮箱:</strong> maxin@swust.edu.cn</p>
+<p><a href="https://scholar.google.com/citations?user=WUwRi7QAAAAJ&amp;amp;hl=en">Google Page</a> ,<a href="https://www.researchgate.net/profile/Xin_Ma58">Research Gate</a></p></li>
+<li><p><strong>个人主页：</strong> https://maxin.website/</p></li>
+</ul>
+<h2 id="个人简介">个人简介</h2>
+<p>马新（1989-03），男，汉族。2016年毕业于西南石油大学石油与天然气工程（石油工程计算技术）专业（教育部第四轮评估A+学科），获工学博士学位，比利时鲁汶大学(KU Leuven)访问学者。长期从事灰色系统、机器学习及其在能源工程中的应用和软件开发的研究工作。近年来主持<strong>国家自然科学基金、教育部人文社科研究项目、全国统计研究项目、国家重点实验室开放基金项目各1项</strong>；<strong>共发表SCI论文70余篇</strong>，<strong>累计影响因子超过100</strong>，论著被引800余次。其中第一作者SCI论文16篇（累计影响因子&gt;40），通讯作者SCI论文17篇(累计影响因子&gt;30)。<strong>第一作者</strong>论文中<strong>5篇进入ESI全球前1‰之列（Hot Paper）</strong>,<strong>10篇进入ESI全球前1%高被引论文之列</strong>，<strong>通讯作者论文4篇进入ESI全球前1%高被引论文之列,3篇进入ESI全球前1‰之列（Hot Paper）</strong>，另有7篇合著论文进入ESI高被引论文, 4篇论文进入Hot Paper之列；登记软件著作权1项。2018年分别获得GSUA国际学术会议优秀会议论文奖，全国石油化工行业优秀论文三等奖各1项。现担任<strong>中国优选法统筹法与经济数学研究会灰色系统专业委员会理事，国际SCI杂志 Journal of Grey System 编委，Mathematical Problems in Engineering 特刊客座编辑(Energy Time Series Forecasting)，IEEE TNNLS, Applied Energy, Energy Economics 等国际顶级期刊审稿人。2021年11月入选全球高被引科学家(<a href="https://recognition.webofscience.com/awards/highly-cited/2021/">Clarivate官网发布</a>)。</strong></p>
+<h2 id="学习及工作经历">学习及工作经历</h2>
+<ul>
+<li>2020/07— 至今, 西南科技大学，硕士研究生导师（工商管理）</li>
+<li>2019/12— 至今, 西南科技大学，副教授</li>
+<li>2019/04—2019/07, ESAT, KU Leuven (鲁汶大学), 访问学者，合作导师 Johan Suykens</li>
+<li>2016/07— 2019/12, 西南科技大学，讲师</li>
+<li>2013/09—2016/06, 西南石油大学，石油工程计算技术，工学博士</li>
+<li>2010/09—2013/06, 西南石油大学，石油工程计算技术，工学硕士</li>
+<li>2006/09—2010/06, 西华大学，数学与应用数学，理学学士</li>
+</ul>
+<h2 id="主要研究方向">主要研究方向</h2>
+<ul>
+<li>灰色系统</li>
+<li>机器学习</li>
+<li>智能优化算法</li>
+<li>能源预测</li>
+<li>软件工程</li>
+</ul>
+<h2 id="主讲课程">主讲课程</h2>
+<p>本专科：《高等数学》(本、专)、《算法设计与分析》(本)、《计量经济学》(本)、《机器学习》(本)、《经济数学》(专)</p>
+<p>研究生：《模糊数学》</p>
+<p>全校公选课（课程负责人）：《灰色预测建模原理及应用》</p>
+<h2 id="主持和参与科研项目情况">主持和参与科研项目情况</h2>
+<ul>
+<li><p><strong>主持科研项目：</strong></p></li>
+<li><p>(1) 2020年1月—2022年12月   <strong>融合深度核学习的灰色预测建模方法及其应用研究</strong>，国家自然科学基金青年基金，<strong>主持</strong>。  </p></li>
+<li><p>(2) 2019年3月—至今 <strong>基于灰色小波核学习的我国天然气短期安全消费峰值预测预警研究</strong>，教育部人文社科基金青年基金，<strong>主持</strong>。</p></li>
+<li><p>(3) 2018年9月—至今 <strong>灰色深度神经网络及在能源消费废气排放预测中的应用，</strong>全国统计科学研究项目，<strong>主持</strong>。</p></li>
+<li><p>(4) 2017年12月—至今 <strong>基于 Arps 递减和进化超限学习机的油藏产量预测分析研究, </strong>油气藏地质及开发工程国家重点实验室开放基金，<strong>主持</strong>。</p></li>
+<li><p><strong>参与科研项目：</strong></p></li>
+<li><p>(1) 2011年9月—2014年4月 <strong>油气藏工程方法软件包研制与开发应用</strong>，中石油华北油田公司校企合作项目，经费：102万元，主研人员。</p></li>
+<li><p>(2) 2012年5月—2012年12月 <strong>修井作业施工效果评价系统研究</strong>，中石油大港油田公司合作项目，经费：53万元，主研人员。</p></li>
+<li><p>(3) 2011年10月—2012年9月 <strong>长庆油田采油作业区开发管理考评系统研究</strong>，中石油长庆油田公司合作项目，经费：70万元，主研人员。</p></li>
+<li><p>(4) 2010年11月—2012年4月 <strong>苏丹 1/2/4区控水稳油综合治理技术研究</strong> .中石油大庆田勘探开发研究院项目, 经费：80万元， 参与研究。</p></li>
+</ul>
+<h2 id="审稿期刊">审稿期刊</h2>
+<p>IEEE Transactions on Neural Networks and Learning Systems, Applied Energy, Applied Mathematical Modelling, Energy Economics, Knowledge-Based Systems, Energy, Energy Economics, Communications in Nonlinear Science and Numerical Simulation, Engineering Applications of Artificial Intelligence, Energy Reports, Sustainable Production and Consumption, Physica A: Statistical Mechanics and its Applications, PLOS ONE, Sensors, Journal of Grey System, Grey Systems-Theory and Application, Journal of Ambient Intelligence &amp; Humanized Computing, IEEE Access, Kybernetes, AIMS Mathematics, <em>etc.</em>.</p>
+<h2 id="发表论著时间降序">发表论著（时间降序）</h2>
+<p><strong>注</strong>：<a href="https://www.researchgate.net/profile/Xin_Ma58">ResearchGate主页</a>持续更新论文信息和大部分全文！<a href="https://maxin.website/publications/">查看完整论著列表</a> (论文分区按发表当年最高分区统计)。</p>
+<p>####　第一作者论文</p>
+<ol type="1">
+<li><strong>Xin Ma*</strong>, Xie Mei, and Johan AK Suykens. “A novel neural grey system model with Bayesian regularization and its applications.” Neurocomputing, 2021, 456(7): 61-75. (<strong>SCI, 二区</strong>）</li>
+<li><strong>Xin Ma*</strong>, Wenqing Wu, Bo Zeng, Yong Wang, Xinxing Wu. "The conformable fractional grey system model", ISA Transactions, 2020, 96：255-271． (<strong>SCI, 一区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</strong>)</li>
+<li><strong>Xin Ma</strong>, Wenqing Wu*, and Yuanyuan Zhang. Improved GM (1, 1) model based on Simpson formula and its applications. Journal of Grey system, 2019, 31(4): 33-46. (<strong>SCI, 四区, ESI全球前1%高被引论文</strong>)</li>
+<li><strong>Xin Ma*</strong>, Mei Xie, Wenqing Wu, Bo Zeng, Yong Wang, and Xinxing Wu. "The novel fractional discrete multivariate grey system model and its applications." Applied Mathematical Modelling 70 (2019): 402-424. (<strong>SCI, 二区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</strong>)</li>
+<li><strong>Xin Ma*</strong>, Xie Mei, Wenqing Wu, Xinxing Wu and Bo Zeng. “A novel fractional time delayed grey model with Grey Wolf Optimizer and its applications in forecasting the natural gas and coal consumption in Chongqing China”. Energy 2019, 178, 487-507. (<strong>SCI, 一区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</strong>)</li>
+<li><strong>Xin Ma*</strong>, Zhibin Liu, and Yong Wang. "Application of a novel nonlinear multivariate grey Bernoulli model to predict the tourist income of China." Journal of Computational and Applied Mathematics , 2019, vol. 347, pp. 84-94. (<strong>SCI, 二区，ESI全球前1%高被引论文,ESI全球前0.1%Hot paper</strong>)</li>
+<li><strong>Xin Ma</strong>. A brief introduction to the Grey Machine Learning, Journal of Grey System, 2019 31 (1), 1-12. (<strong>SCI, 四区，ESI全球前1%高被引论文，ESI全球前0.1%Hot paper, GSUA国际会议优秀论文</strong>)</li>
+<li><strong>Xin Ma*</strong>, Z. Liu, The kernel-based nonlinear multivariate grey model, Applied Mathematical Modelling, 56, 2018, 217-238. (<strong>SCI, 一区, ESI全球前1%高被引论文</strong>)</li>
+<li><strong>Xin Ma*</strong>, Z.B. Liu. Predicting the oil production using the novel multivariate nonlinear model based on Arps decline model and kernel method[J]. Neural Computing and Applications, 2018, 29(2): 579-591. <strong>(SCI, 二区, ESI全球前1%高被引论文，全国石油化工自动化行业优秀论文三等奖)</strong></li>
+<li><strong>Xin Ma*</strong>, Y. S. Hu, Z.B. Liu. A novel kernel regularized nonhomogeneous grey model and its applications[J]. Communications in Nonlinear Science &amp; Numerical Simulation, 2017, 48: 51-62. (<strong>SCI, 一区，ESI全球前3%扩展版高被引论文</strong>)</li>
+<li><strong>Xin Ma*</strong>, Z.B. Liu. Application of a novel time-delayed polynomial grey model to predict the natural gas consumption in China[J]. Journal of Computational and Applied Mathematics, 2017, 324: 17-24. (<strong>SCI, 二区，ESI全球前1%高被引论文</strong>)</li>
+<li><strong>Xin Ma*</strong>, Z. B. Liu. The GMC(1, n) model with optimized parameters and its applications[J]. Journal of Grey System, 2017,29(4): 122-138.(<strong>SCI， 四区, ESI全球前1%高被引论文)</strong></li>
+<li><strong>Xin Ma*</strong>, Z. B. Liu. Research on the novel recursive discrete multivariate grey prediction model and its applications[J]. Applied Mathematical Modelling, 2016, 40(7): 4876-4890. <strong>(SCI, 一区</strong>)</li>
+<li><strong>Xin Ma*</strong>. Research on a Novel Kernel Based Grey Prediction Model and Its Applications[J]. Mathematical Problems in Engineering, 2016, (2016):1-9. (<strong>SCI, 四区</strong>)</li>
+<li><strong>Xin Ma*</strong>, Z.B. Liu. Predicting the oil field production using the novel discrete GM (1, N) model[J]. The Journal of Grey System, 2015, 27(4): 63-74. (<strong>SCI, 四区</strong>)</li>
+<li><strong>Xin Ma*</strong>, Z.B. Liu, Wei Y, Kong X H. A Novel Kernel Regularized Nonlinear GMC (1, n) Model and Its Application[J]. Journal of Grey System, 2016, 28(3): 97-109. <strong>(SCI, 四区)</strong></li>
+<li><strong>Xin Ma*</strong>, Z.B. Liu, Chen Y. Optimizing the Grey GM(1,N) Model by Rebuilding All the Back Ground Values[J]. Journal of Systems Science &amp; Information, 2014, 2(6):543-552.</li>
+</ol>
+<h4 id="通讯作者论文">通讯作者论文</h4>
+<ol type="1">
+<li>Yubin Cai, <strong>Xin Ma</strong>*. A novel ensemble learning-based grey model for electricity supply forecasting in China, AIMS Mathematics, 2021, 6(11): 12339-12358. https://doi.org/10.3934/math.2021714 (<strong>SCI, 三区</strong>)</li>
+<li>Lang Yu, <strong>Xin Ma</strong>*, Wenqing Wu, Xiwang Xiang, Yong Wang, Bo Zeng. Application of a novel time-delayed power-driven grey model to forecast photovoltaic power generation in the Asia-Pacific region, Sustainable Energy Technologies and Assessments 44, 2021, 100968. https://doi.org/10.1016/j.seta.2020.100968 (<strong>SCI, 二区</strong>)</li>
+<li>Lang Yu, <strong>Xin Ma</strong>*, Wenqing Wu, Yong Wang, Bo Zeng. A novel Elastic Net-based NGBMC (1, n) model with multi-objective optimization for nonlinear time series forecasting. Communications in Nonlinear Science and Numerical Simulation, 2021, 105696. https://doi.org/10.1016/j.cnsns.2021.105696 (<strong>SCI, 一区</strong>)</li>
+<li>Hongfang Lu, <strong>Xin Ma</strong>*, Minda Ma, Senlin Zhu. Energy price prediction using data-driven models: A decade review, Computer Science Review 39, 2021, 100356. https://doi.org/10.1016/j.cosrev.2020.100356 (<strong>SCI一区</strong>)</li>
+<li>Xiwang Xiang, <strong>Xin Ma</strong>*, Minda Ma, Wenqing Wu, Lang Yu. Research and application of novel Euler polynomial-driven grey model for short-term PM10 forecasting. Grey Systems: Theory and Application, 2021, 11(3), 498-517. https://doi.org/10.1108/GS-02-2020-0023. (<strong>SCI, 二区</strong>)</li>
+<li>Wenqing Wu, <strong>Xin Ma</strong>*, Bo Zeng, Yuanyuan Zhang, Wanpeng Li. Forecasting short-term solar energy generation in Asia Pacific using a nonlinear grey Bernoulli model with time power term. Energy &amp; Environment, 2020, 0958305X20960700. <a href="https://doi.org/10.1177%2F0958305X20960700">https://doi.org/10.1177/0958305X20960700</a> (<strong>SSCI</strong>)</li>
+<li>Xiwang Xiang, <strong>Xin Ma</strong>*, Yizhu Fang, Wenqing Wu, Gaoxun Zhang. A novel hyperbolic time-delayed grey model with Grasshopper Optimization Algorithm and its applications, Ain Shams Engineering Journal, 2020, https://doi.org/10.1016/j.asej.2020.07.019. (<strong>SCI, 三区</strong>)</li>
+<li>Yu Hu, <strong>Xin Ma</strong>*, Wanpeng Li, Wenqing Wu, Daoxing Tu. Forecasting manufacturing industrial natural gas consumption of China using a novel time-delayed fractional grey model with multiple fractional order. Computational and Applied Mathematics, 39, 263 (2020). https://doi.org/10.1007/s40314-020-01315-3 .(<strong>SCI, 三区</strong>)</li>
+<li>Hongfang Lu, Feifei Cheng, <strong>Xin Ma</strong>*, Gang Hu. Short-term prediction of building energy consumption employing an improved extreme gradient boosting model: A case study of an intake tower, Energy, 2020, 117756.(<strong>SCI, 一区</strong>)</li>
+<li>Wenqing Wu, <strong>Xin Ma</strong>*, Bo Zeng, Wangyong Lv, Yong Wang, Wanpeng Li. A novel Grey Bernoulli model for short-term natural gas consumption forecasting, Applied Mathematical Modelling, 2020, 84: 393-404.(<strong>SCI, 二区</strong>)</li>
+<li>Wenqing Wu, <strong>Xin Ma</strong>*, Yuanyuan Zhang, Wanpeng Li, Yong Wang. A novel conformable fractional non-homogeneous grey model for forecasting carbon dioxide emissions of BRICS countries, Science of the Total Environment, 2020. (<strong>SCI, 一区, ESI全球前1%高被引论文，ESI全球前0.1%Hot paper</strong>)</li>
+<li>Jie Xia, <strong>Xin Ma*</strong>, Wenqing Wu, Baolian Huang, Wanpeng Li. Application of a new information priority accumulated grey model with time power to predict short-term wind turbine capacity, Journal of Cleaner Production, 2020, 244, Aricle ID: 118573. (<strong>SCI/SSCI, 一区, ESI全球前1%高被引论文, ESI全球前0.1%Hot paper</strong>)</li>
+<li>Wenqing Wu, <strong>Xin Ma*</strong>, Bo Zeng, Yong Wang, and Wei Cai. Forecasting short-term renewable energy consumption of China using a novel fractional nonlinear grey Bernoulli model. Renewable energy 140 (2019): 70-87. (<strong>SCI, 二区, ESI全球前1%高被引论文，ESI全球前0.1%Hot paper</strong>)</li>
+<li>Wenqing Wu, <strong>Xin Ma*</strong>, Bo Zeng, Yong Wang, and Wei Cai. "Application of the novel fractional grey model FAGMO (1, 1, k) to predict China's nuclear energy consumption." Energy 165 (2018): 223-234. (<strong>SCI, 一区, ESI全球前1%高被引论文</strong>)</li>
+<li>L.C. Kong, <strong>Xin Ma*</strong>, Comparison study on the nonlinear parameter optimization of nonlinear grey Bernoulli model NGBM(1,1) between intelligent optimizers[J]. Grey Systems: Theory and Application, 2018, 8(2): 210-226.(<strong>SCI</strong>)</li>
+<li>Wenqing Wu, <strong>Xin Ma</strong>*, Yong Wang, Yuanyuan Zhang, and Bo Zeng. "Research on a novel fractional GM (α, n) model and its applications." Grey Systems: Theory and Application 9, no. 3 (2019): 356-373. (<strong>SCI</strong>)</li>
+<li>Wenqing Wu, <strong>Xin Ma*</strong>, Yuanyuan Zhang, Yong Wang, and Xinxing Wu. "Analysis of novel FAGM (1, 1, <span class="math inline"><em>t</em><sup><em>α</em></sup></span>) model to forecast health expenditure of China." Grey Systems: Theory and Application 9, no. 2 (2019): 232-250. (<strong>SCI</strong>)</li>
+<li>夏杰, <strong>马新</strong>*, 吴文青. 基于Simpson公式改进的FAGM(1,1)模型及其应用研究，中国管理科学, 2021,29(05): 240-248.<strong>（自然科学基金委A类重要期刊）</strong></li>
+</ol>
+<h2 id="获奖情况">获奖情况</h2>
+<ol type="1">
+<li>2021年11月，<strong>全球高被引科学家</strong>（交叉学科领域）</li>
+<li>2018年12月石油和化工自动化行业科学技术奖（<strong>优秀科技论文奖，三等奖</strong>）</li>
+<li>2018年4月 灰色系统国际学术会议<strong>优秀会议论文</strong></li>
+<li>2017年4月 《Applied Mathematical Modelling》<strong>杰出评审贡献奖</strong></li>
+<li>2017，2018，2019年5月 蓝桥杯全国信息技术大赛<strong>优秀指导教师</strong>（3次）</li>
+<li>2014年12月，2016年5月 西南石油大学”<strong>校长奖学金</strong>” 校级（2次）</li>
+<li>2015年12月 “<strong>研究生国家奖学金</strong>”，西南石油大学”<strong>二等学业奖学金</strong>”，研究生”<strong>十大学术成就奖</strong>”</li>
+<li>2013年6月 西南石油大学”<strong>优秀硕士毕业论文</strong>” 校级</li>
+<li>2010年4月 西华大学<strong>三等奖学金</strong>、西华大学”<strong>院级三好学生</strong>” 院级</li>
+<li>2008年12月 西华大学<strong>优秀社团干部</strong> 校级</li>
+<li>2008年4月西华大学<strong>英语风采大赛演讲比赛</strong>”三等奖”，“最佳机智奖” 校级</li>
+<li>2007年 4月 西华大学<strong>二等奖学金</strong>、西华大学”<strong>校级三好学生</strong>” 校级</li>
+</ol>
+<h2 id="学术兼职">学术兼职</h2>
+<ol type="1">
+<li>国际SCI期刊《Journal of Grey System》 <strong>编委</strong></li>
+<li>中国优选法统筹法与经济数学研究会 灰色系统专业委员会 <strong>理事</strong></li>
+<li>Mathematical Problems in Engineering <strong>特刊客座编辑</strong> (Energy Time Series Forecasting)</li>
+</ol>
+<h2 id="技术技能">技术技能</h2>
+<ol type="1">
+<li><p>精通或熟练程序语言：Matlab, C, C# (MVC), Python, Javascript</p></li>
+<li><p>数据库技术：PLSQL(Oracle), MySQL, MS Access</p></li>
+<li><p>全国软件专业人才高级证书(C\C++)</p></li>
+<li><p>英语水平：CET 6 (503)， BEC Higher B2</p></li>
+</ol>
+<p>[TOC]</p>
