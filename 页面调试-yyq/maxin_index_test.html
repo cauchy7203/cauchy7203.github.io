@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/temp_scripts/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="temp_scripts/jquery-3.7.1.js"></script>
+    <script src="temp_scripts/jquery-ui.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+    <title>我的GLOBE测试用</title>
+
+    <script src="plugins/glide.js"></script>
+    <script defer src="myindex.js"></script>
+
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -55px;
+            /* 可根据需要调整 */
+            padding: 5px;
+            /* 调整padding减小背景 */
+            margin: 5px;
+        }
+
+        .container a {
+            margin: 0 10px;
+            /* 可根据需要调整 */
+        }
+
+        .container img {
+            background-color: white;
+        }
+    </style>
+
+    <style>
+        .container_globe {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(25, 83, 130);
+            /* 背景色与图片相同 */
+            padding: 5px;
+            /* 调整padding减小背景 */
+            margin: 5px;
+        }
+
+        .logo {
+            margin-right: 20px;
+            /* 右边距，用于分隔图片和文字 */
+        }
+
+        .text {
+            width: 420px;
+            color: white;
+            /* 文字颜色 */
+        }
+
+        .text a {
+            color: #2bfd75;
+            /* 链接颜色 */
+            text-decoration: none;
+        }
+
+        .text a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <style>
+        /* }
+     .guide a {
+      color: rgb(78, 227, 153);
+     } */
+
+        .guide {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgb(25, 83, 130);
+            z-index: 1000;
+            /* 确保导航栏在其他内容上方 */
+        }
+
+        .guide ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            /* 使用 Flexbox 布局 */
+            justify-content: center;
+            /* 水平居中对齐（可选） */
+        }
+
+        .guide li {
+            margin: 0 10px;
+            /* 左右间距 */
+        }
+
+        .guide a {
+            color: rgb(78, 227, 153);
+            text-decoration: none;
+            font-size: 25px;
+            padding: 0px 20px;
+            /* 内边距，增加点击区域 */
+            border: 2px solid black;
+            /* 边框样式 */
+            border-radius: 5px;
+            /* 圆角边框 */
+            transition: background-color 0.3s, border-color 0.3s;
+            /* 平滑过渡效果 */
+        }
+
+        .guide a:hover {
+            background-color: white;
+            /* 鼠标悬停时的背景颜色 */
+            color: #333;
+            /* 鼠标悬停时的文字颜色 */
+        }
+
+        .content {
+            margin-top: 60px;
+            /* 确保内容不被固定导航栏覆盖 */
+            padding: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="guide">
+        <ul>
+            <li><a href="#tabs-1">About GLOBE</a></li>
+            <li><a href="#tabs-2">Publications</a></li>
+            <li><a href="#tabs-3">Energy & Emissions</a></li>
+            <li><a href="#tabs-4">Floorspace & Stock</a></li>
+            <li><a href="#tabs-5">GLOBE’s tools</a></li>
+        </ul>
+    </div>
+    <div id="tabs-1">
+        <article class="hero">
+            <div class="padding">
+                <h1> Global Building Emissions (GLOBE)<br /> Database</h1>
+                <!-- <span class="highlight" style="color:rgb(0,49,89);">(GLOBE)</span> -->
+
+                <div class="container_globe">
+                    <div class="logo">
+                        <img src="image_temp/globe.png" alt="GLOBE Logo" width="250" /> <!-- 设置合适的宽度 -->
+                    </div>
+                    <div class="text">
+                        <p><strong>GLOBE:</strong> a multi-regional dataset aims to monitor energy trends, emissions
+                            transition, and building stock on a global scale.</p>
+                        <p><a href="https://globe.lbl.gov/" target="_blank">https://globe.lbl.gov/</a><br>
+                            <a href="https://globe2060.org/" target="_blank">https://globe2060.org/</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </article>
+
+        <article class="notes">
+            <div class="padding">
+                <div class="paragraphs">
+                    <p>
+                        GLOBE was initially proposed by Dr. <a style="color: rgb(0,49,89);"
+                            href="https://buildings.lbl.gov/people/minda-ma">Minda Ma</a> in 2021, and now it is a
+                        project led by <a href="https://buildings.lbl.gov/">Lawrence Berkeley National Laboratory</a>
+                        (LBNL, operated by UC Berkeley for U.S. DOE) and <a href="https://www.cqu.edu.cn/">Chongqing
+                            University</a>.
+                    </p>
+                    <!-- <p>
+            我们探讨了几种建筑脱碳情景对能源需求、
+            排放和电网到2050年的影响。考虑到全面
+            的建筑效率、灵活性和电气化措施组合，
+            我们发现：
+          </p> -->
+                </div>
+
+                <div class="container">
+                    <a target="_blank" href="https://www.brattle.com/">
+                        <img src="image_temp/building.png" alt="urban_building Logo"
+                            style="width: auto;height: 100px;" />
+                    </a>
+                    <a target="_blank" href="https://www.brattle.com/">
+                        <img src="image_temp/berkeley.png" alt="Berkeley_database Logo"
+                            style="width: auto;height: 100px;" />
+                    </a>
+                    <a target="_blank" href="https://www.brattle.com/">
+                        <img src="image_temp/城规学院.png" alt="school Logo" style="width: auto;height: 100px;" />
+                    </a>
+                </div>
+            </div>
+        </article>
+    </div>
+    <div id="tabs-2">
+        <article class="slides">
+            <div class="padding">
+                <section id="tabs" class="tabs">
+
+                    <button id="test" class="tab">
+                        <!-- <img src="assets/tabs/effort.png" width="109" height="109" /> -->
+                        Paper Testiv
+                    </button>
+                    <button id="test2" class="tab">
+                        <!-- <img src="assets/tabs/effort.png" width="109" height="109" /> -->
+                        Paper test2
+                    </button>
+                </section>
+
+                <article id="slides-container">
+                    <section class="slide visible" id="test-slide">
+                        <h3 class="title">
+                            <!-- Deep reductions in building sector energy and emissions are
+              possible by 2050 -->
+                        </h3>
+                        <div class="main">
+                            <section class="paragraphs">
+                                <p>
+                                    We tackle a critical aspect of global carbon emissions: the profound impact of the
+                                    building sector. Buildings, responsible for 37% of global carbon emissions in 2022,
+                                    emerge as a pivotal target for achieving net-zero carbon goals. <b> the dearth of
+                                        global building floorspace data hindering carbon intensity assessments, we
+                                        introduce GLOBUS, a global building stock model. This innovative model provides
+                                        a comprehensive dataset on building stock turnover under various renovation
+                                        scenarios, enabling comparative analyses crucial for advancing building sector
+                                        decarbonization strategies.</b> Highlighting the potential of building
+                                    renovation to mitigate stock expansion, the study emphasizes pathways toward
+                                    enhancing the carbon neutrality of global building stocks. By integrating these
+                                    insights, policymakers and researchers gain a robust framework to guide effective
+                                    building decarbonization policies and practices, essential for a sustainable future.
+                                    <br>
+                                    For more details, please refer to <a
+                                        href="https://doi.org/10.1016/j.ynexs.2024.100019">https://doi.org/10.1016/j.ynexs.2024.100019.</a>
+                                </p>
+                            </section>
+
+                            <section class="images">
+                                <img alt="Building CO2: Annual, Energy-Related" src="image_temp/artical_1.jpg"
+                                    style="width: 800px;height: auto;" />
+                            </section>
+                        </div>
+                    </section>
+
+                    <section class="slide" id="test2-slide">
+                        <h3 class="title">
+                            <!-- Building efficiency and electrification are critical for deep
+              emissions reductions -->
+                        </h3>
+                        <div class="main">
+                            <section class="paragraphs">
+                                <p>
+                                    We tackle a critical aspect of global carbon emissions: the profound impact of the
+                                    building sector. Buildings, responsible for 37% of global carbon emissions in 2022,
+                                    emerge as a pivotal target for achieving net-zero carbon goals.<b> Addressing the
+                                        dearth of global building floorspace data hindering carbon intensity
+                                        assessments, we introduce GLOBUS, a global building stock model. This innovative
+                                        model provides a comprehensive dataset on building stock turnover under various
+                                        renovation scenarios, enabling comparative analyses crucial for advancing
+                                        building sector decarbonization strategies.</b> Highlighting the potential of
+                                    building renovation to mitigate stock expansion, the study emphasizes pathways
+                                    toward enhancing the carbon neutrality of global building stocks. By integrating
+                                    these insights, policymakers and researchers gain a robust framework to guide
+                                    effective building decarbonization policies and practices, essential for a
+                                    sustainable future.
+                                    <br>
+                                    For more details, please refer to <a
+                                        href="https://doi.org/10.1016/j.ynexs.2024.100019">https://doi.org/10.1016/j.ynexs.2024.100019.</a>
+
+                                </p>
+                            </section>
+
+                            <section class="images">
+                                <img alt="Low Decarbonization Benchmark" src="image_temp/artical2.jpg" />
+                            </section>
+
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </article>
+    </div>
+
+    <div id="tabs-10">
+        <article class="slides">
+            <div class="padding">
+                <section id="tabs2" class="tabs">
+                    <button id="GLOBUS" class="tab">
+                        <!-- <img src="assets/tabs/effort.png" width="109" height="109" /> -->
+                        GLOBUS
+                    </button>
+                    <button id="PyLMDI" class="tab">
+                        PyLMDI
+                    </button>
+                </section>
+
+                <article id="slides-container">
+                    <section class="slide visible" id="GLOBUS-slide">
+                        <h3 class="title">
+                            <!-- Building efficiency and flexibility reduce the cost of grid
+                  decarbonization -->
+                        </h3>
+                        <div class="main">
+                            <section class="paragraphs">
+                                <p>
+                                    In 2024, we create a global building stock model (GLOBUS) incorporating turnover and
+                                    renovations.
+                                    GLOBUS’s primary contribution lies in providing a dataset of global building stock
+                                    turnover using scenarios that incorporate various levels of building renovation.
+                                    <br>
+                                    By unifying the evaluation indicators, the dataset empowers building science
+                                    researchers to perform comparative analyses based on floorspace.
+                                    <br>
+                                    For more details, please refer to <a
+                                        href="https://doi.org/10.1016/j.ynexs.2024.100019">https://doi.org/10.1016/j.ynexs.2024.100019.</a>
+
+                                </p>
+                            </section>
+
+                            <section class="images">
+                                <img alt="National Power System Cost Savings by End Use"
+                                    src="image_temp/artical3.jpg" />
+                            </section>
+
+                        </div>
+                    </section>
+                    <section class="slide" id="PyLMDI-slide">
+                        <h3 class="title">
+                            <!-- Early retrofits and codes and standards are key deployment levers -->
+                        </h3>
+                        <div class="main">
+                            <section class="paragraphs">
+                                <p>
+                                    A timely analysis for carbon emission reduction in buildings is an effective global
+                                    response to the crisis of climate change. The logarithmic mean Divisia index (LMDI)
+                                    decomposition analysis approach has been extensively used to assess the carbon
+                                    emission reduction potential of the buildings sector. In order to simplify the
+                                    calculation process and to expand its application scope, a new open-source Python
+                                    tool (PyLMDI) developed in this article is used to compute the results of LMDI
+                                    decomposition analysis, including multiplicative and additive decomposition. Users
+                                    can quickly obtain the decomposition result by initializing the input data through a
+                                    simple class data structure. In addition, the carbon emissions from commercial
+                                    buildings are used as a numerical example to demonstrate the function of PyLMDI. In
+                                    summary, PyLMDI is a potential calculation tool for index decomposition analysis
+                                    that can provide calculation guidance for carbon emission reduction in the buildings
+                                    sector. The data and codes for the numerical example are also included.
+
+                                </p>
+                            </section>
+
+                            <img alt="Low Decarbonization Scenarios; Moderate Decarbonization Scenarios; Aggresive Decarbonization Scenarios"
+                                class="adjust" src="image_temp/artical4.jpg" />
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </article>
+    </div>
+    <div id="tabs-3">
+        <article class="overview">
+            <div class="padding">
+                <section class="description">
+                    <h3 class="title">Selected Articles</h3>
+                    <p>
+                        In 2023-2024, some of GLOBE's noteworthy applications have been featured in international
+                        journals like Nexus (Cell
+                        Press Partner Journal), Cell Reports Sustainability, Advances in Applied Energy, Applied Energy,
+                        and Sustainable Cities
+                        and Society.
+                    </p>
+                </section>
+                <!-- <section class="arguments">
+          <div class="argument">
+            <img width="122" height="137" src="assets/arguments/methodology.png" />
+            <p>
+              A dozen modeling scenarios that span a comprehensive range of key
+              factors such as the rate of new building technology deployment,
+              the pace and extent of power generation decarbonization, and the
+              performance levels of available efficient and flexible
+              technologies, among others.
+            </p>
+          </div>
+  
+          <div class="argument">
+            <img width="120" height="120" src="assets/arguments/modelling.png" />
+            <p>
+              Representation of the installed costs, consumer adoption, and
+              energy demand impacts of over 150 residential and commercial
+              building decarbonization measures between 2023-2050 using the U.S.
+              DOE Building Technologies Office (BTO) Scout model.
+            </p>
+          </div>
+  
+          <div class="argument">
+            <img width="103" height="103" src="assets/arguments/granular.png" />
+            <p>
+              Granular geographic representation of U.S. power sector
+              development and electricity emissions across 25 regions using
+              Brattle's GridSIM capacity expansion model.
+            </p>
+          </div>
+  
+          <div class="argument">
+            <img width="115" height="115" src="assets/arguments/hourly.png" />
+            <p>
+              Hourly modeling of system impacts from demand-side building
+              measures through 2050, including optimized dispatch of building
+              demand flexibility measures, using Brattle's LoadFlex model.
+            </p>
+          </div>
+        </section> -->
+
+                <section class="arguments">
+                    <section class="arguments">
+                        <div class="argument">
+                            <p>
+                                [1] Ma M, Zhou N *, Feng W, Yan J. Challenges and Opportunities in the Global Net-Zero
+                                Building Sector. <em>Cell Reports Sustainability</em> 2024. Forthcoming.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [2] Zhang S, Ma M*, Zhou N*, Yan J, Feng W, Yan R, et al. Estimation of Global Building
+                                Stocks by 2070: Unlocking Renovation Potential. <em>Nexus</em> 2024; 1(3):100019.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [3] Yuan H, Ma M*, Zhou N, Xie H, Ma Z, Xiang X, Ma X. Battery electric vehicle charging
+                                in China: Energy demand and emissions trends in the 2020s. <em>Applied Energy</em>
+                                2024;365:123153.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [4] Xiang X, Zhou N, Ma M*, Feng W*, Yan R. Global transition of operational carbon in
+                                residential buildings since the millennium. <em>Advances in Applied Energy</em>
+                                2023;11:100145.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [5] Yan R, Ma M*, Zhou N, Feng W, Xiang X, Mao C. Towards COP27: Decarbonization
+                                patterns of residential building in China and India. <em>Applied Energy</em>
+                                2023;352:122003.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [6] Yan R, Chen M, Xiang X, Feng W, Ma M*. Heterogeneity or illusion? Track the carbon
+                                Kuznets curve of global residential building operations. <em>Applied Energy</em>
+                                2023;347:121441.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [7] Zhang S, Zhou N, Feng W, Ma M*, Xiang X, You K. Pathway for decarbonizing
+                                residential building operations in the US and China beyond the mid-century. <em>Applied
+                                    Energy</em> 2023;342:121164.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [8] Chen L, Ma M*, Xiang X. Decarbonizing or illusion? How carbon emissions of
+                                commercial building operations change worldwide. <em>Sustainable Cities and Society</em>
+                                2023;96:104654.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [9] Xiang X, Ma M*, Ma X, Chen L, Cai W, Feng W, et al. Historical decarbonization of
+                                global commercial building operations in the 21st century. <em>Applied Energy</em>
+                                2022;322:119401.
+                            </p>
+                        </div>
+
+                        <div class="argument">
+                            <p>
+                                [10] Zhang S, Ma M*, Xiang X, Cai W, Feng W, Ma Z. Potential to decarbonize the
+                                commercial building operation of the top two emitters by 2060. <em>Resources,
+                                    Conservation and Recycling</em> 2022;185:106481.
+                            </p>
+                        </div>
+                    </section>
+            </div>
+        </article>
+    </div>
+    <div id="tabs-4">
+        <article class="slides">
+            <div class="padding">
+                <article id="slides-container2">
+                    <section class="slide visible" id="paper_1-slide2">
+                        <article id="analysis" class="analysis visible">
+                            <div class="padding">
+                                <h3 class="title">
+                                    Our analysis assesses the effects of a full suite of building measures
+                                    and measure deployment dynamics that could be affected by policy
+                                    programs
+                                </h3>
+
+                                <section class="topics green">
+                                    <h2 class="topic-header">BUILDING MEASURES</h2>
+                                    <div class="topic">
+                                        <img width="57" height="57" src="assets/topics/efficiency.png" />
+                                        <p>
+                                            <strong>Energy efficiency</strong>
+                                            <br />
+                                            <span>(persistent reductions in energy to serve electric/fossil
+                                                loads)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="57" height="57" src="assets/topics/flexibility.png" />
+                                        <p>
+                                            <strong>Demand flexibility</strong>
+                                            <br />
+                                            <span>(shed, shift, and/or shape electric loads to better match
+                                                electric grid needs)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="57" height="85" src="assets/topics/electrification.png" />
+                                        <p>
+                                            <strong>End-use electrification</strong>
+                                            <br />
+                                            <span>(switch from fossil-based to electric end-use services)</span>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="topics blue">
+                                    <h2 class="topic-header">DEPLOYMENT DYNAMICS</h2>
+                                    <div class="topic">
+                                        <img width="97" height="70" src="assets/topics/performance.png" />
+                                        <p>
+                                            <strong>Elevate minimum performance codes/standards</strong>
+                                            <br />
+                                            <span>(raise market-available performance "floor")</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <div class="placeholder" style="min-width: 97px; height: 70px"></div>
+                                        <p>
+                                            <strong>Introduce breakthrough technologies</strong>
+                                            <br />
+                                            <span>(raise market-available performance "ceiling")</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="97" height="70" src="assets/topics/accelerate.png" />
+                                        <p>
+                                            <strong>Accelerate electrification</strong>
+                                            <br />
+                                            <span>(escalate annual fuel switching rates)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <div class="placeholder" style="min-width: 97px; height: 70px"></div>
+                                        <p>
+                                            <strong>Accelerate retrofit decisions</strong>
+                                            <br />
+                                            <span>(add annual <strong><em>early</em></strong> replacement
+                                                rates)</span>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="separator">
+                                    <strong> Demand-side (BTO Scout) </strong>
+                                    <div class="divider"></div>
+                                    <strong> Supply-side (Brattle GridSIM) </strong>
+                                </section>
+
+                                <div class="topic">
+                                    <img width="71" height="105" src="assets/topics/decarbonization.png" />
+                                    <p>
+                                        <strong>Power grid decarbonization</strong>
+                                        <br />
+                                        <span>(emissions decline to target by certain year)</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="benchmark" class="benchmark">
+                            <div class="padding">
+                                <h3 class="title">
+                                    Benchmark scenarios are differentiated primarily by levels of
+                                    efficiency, electrification, and grid decarbonization
+                                </h3>
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="thin">Benchmark scenario</th>
+                                                <th class="thin">Efficiency and electrification</th>
+                                                <th class="thin">Grid decarbonization</th>
+                                                <th class="wide">Question addressed</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="teal">1: Low</td>
+                                                <td>Aggressive Electrification Only</td>
+                                                <td>Reference Case (GridSIM Reference Case)</td>
+                                                <td>
+                                                    How impactful is aggressive electrification on emissions
+                                                    without efficiency and under slow grid decarbonization?
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="teal">2: Moderate</td>
+                                                <td>Moderately Aggressive</td>
+                                                <td>
+                                                    Moderately Aggressive (80% Reduction from 2005 Levels by 2050)
+                                                </td>
+                                                <td>
+                                                    Is mostly market-driven demand-side measure deployment with
+                                                    moderate grid decarbonization sufficient to yield deep
+                                                    reductions in building emissions?
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="teal">3: Aggressive</td>
+                                                <td>Aggressive</td>
+                                                <td>Aggressive (100% Reduction by 2035)</td>
+                                                <td>
+                                                    How deeply can building emissions be reduced under a best-case
+                                                    scenario of demand-side measure deployment and grid
+                                                    decarbonization?
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="toggles">
+                            <div class="padding">
+                                <!-- <button id="analysis-button" class="toggle active" onclick="activateAnalysis()"> -->
+                                <button id="analysis-button" class="toggle active">
+                                    Measures and Deployment Dynamics
+                                </button>
+
+                                <!-- <button id="benchmark-button" class="toggle" onclick="activateBenchmark()"> -->
+                                <button id="benchmark-button" class="toggle">
+                                    Benchmark Scenarios
+                                </button>
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="slide" id="paper_2-slide2">
+                        <article id="analysis" class="analysis visible">
+                            <div class="padding">
+                                <h3 class="title">
+                                    Our analysis assesses the effects of a full suite of building measures
+                                    and measure deployment dynamics that could be affected by policy
+                                    programs
+                                </h3>
+
+                                <section class="topics green">
+                                    <h2 class="topic-header">BUILDING MEASURES</h2>
+                                    <div class="topic">
+                                        <img width="57" height="57" src="assets/topics/efficiency.png" />
+                                        <p>
+                                            <strong>Energy efficiency</strong>
+                                            <br />
+                                            <span>(persistent reductions in energy to serve electric/fossil
+                                                loads)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="57" height="57" src="assets/topics/flexibility.png" />
+                                        <p>
+                                            <strong>Demand flexibility</strong>
+                                            <br />
+                                            <span>(shed, shift, and/or shape electric loads to better match
+                                                electric grid needs)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="57" height="85" src="assets/topics/electrification.png" />
+                                        <p>
+                                            <strong>End-use electrification</strong>
+                                            <br />
+                                            <span>(switch from fossil-based to electric end-use services)</span>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="topics blue">
+                                    <h2 class="topic-header">DEPLOYMENT DYNAMICS</h2>
+                                    <div class="topic">
+                                        <img width="97" height="70" src="assets/topics/performance.png" />
+                                        <p>
+                                            <strong>Elevate minimum performance codes/standards</strong>
+                                            <br />
+                                            <span>(raise market-available performance "floor")</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <div class="placeholder" style="min-width: 97px; height: 70px"></div>
+                                        <p>
+                                            <strong>Introduce breakthrough technologies</strong>
+                                            <br />
+                                            <span>(raise market-available performance "ceiling")</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="97" height="70" src="assets/topics/accelerate.png" />
+                                        <p>
+                                            <strong>Accelerate electrification</strong>
+                                            <br />
+                                            <span>(escalate annual fuel switching rates)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <div class="placeholder" style="min-width: 97px; height: 70px"></div>
+                                        <p>
+                                            <strong>Accelerate retrofit decisions</strong>
+                                            <br />
+                                            <span>(add annual <strong><em>early</em></strong> replacement
+                                                rates)</span>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="separator">
+                                    <strong> Demand-side (BTO Scout) </strong>
+                                    <div class="divider"></div>
+                                    <strong> Supply-side (Brattle GridSIM) </strong>
+                                </section>
+
+                                <div class="topic">
+                                    <img width="71" height="105" src="assets/topics/decarbonization.png" />
+                                    <p>
+                                        <strong>Power grid decarbonization</strong>
+                                        <br />
+                                        <span>(emissions decline to target by certain year)</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="benchmark" class="benchmark">
+                            <div class="padding">
+                                <h3 class="title">
+                                    Benchmark scenarios are differentiated primarily by levels of
+                                    efficiency, electrification, and grid decarbonization
+                                </h3>
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="thin">Benchmark scenario</th>
+                                                <th class="thin">Efficiency and electrification</th>
+                                                <th class="thin">Grid decarbonization</th>
+                                                <th class="wide">Question addressed</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="teal">1: Low</td>
+                                                <td>Aggressive Electrification Only</td>
+                                                <td>Reference Case (GridSIM Reference Case)</td>
+                                                <td>
+                                                    How impactful is aggressive electrification on emissions
+                                                    without efficiency and under slow grid decarbonization?
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="teal">2: Moderate</td>
+                                                <td>Moderately Aggressive</td>
+                                                <td>
+                                                    Moderately Aggressive (80% Reduction from 2005 Levels by 2050)
+                                                </td>
+                                                <td>
+                                                    Is mostly market-driven demand-side measure deployment with
+                                                    moderate grid decarbonization sufficient to yield deep
+                                                    reductions in building emissions?
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="teal">3: Aggressive</td>
+                                                <td>Aggressive</td>
+                                                <td>Aggressive (100% Reduction by 2035)</td>
+                                                <td>
+                                                    How deeply can building emissions be reduced under a best-case
+                                                    scenario of demand-side measure deployment and grid
+                                                    decarbonization?
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="toggles">
+                            <div class="padding">
+                                <!-- <button id="analysis-button" class="toggle active" onclick="activateAnalysis()"> -->
+                                <button id="analysis-button" class="toggle active">
+                                    Measures and Deployment Dynamics
+                                </button>
+
+                                <!-- <button id="benchmark-button" class="toggle" onclick="activateBenchmark()"> -->
+                                <button id="benchmark-button" class="toggle">
+                                    Benchmark Scenarios
+                                </button>
+                            </div>
+                        </article>
+                    </section>
+
+                    <section class="slide" id="paper_3-slide2">
+                        <article id="analysis" class="analysis visible">
+                            <div class="padding">
+                                <h3 class="title">
+                                    Our analysis assesses the effects of a full suite of building measures
+                                    and measure deployment dynamics that could be affected by policy
+                                    programs
+                                </h3>
+
+                                <section class="topics green">
+                                    <h2 class="topic-header">BUILDING MEASURES</h2>
+                                    <div class="topic">
+                                        <img width="57" height="57" src="assets/topics/efficiency.png" />
+                                        <p>
+                                            <strong>Energy efficiency</strong>
+                                            <br />
+                                            <span>(persistent reductions in energy to serve electric/fossil
+                                                loads)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="57" height="57" src="assets/topics/flexibility.png" />
+                                        <p>
+                                            <strong>Demand flexibility</strong>
+                                            <br />
+                                            <span>(shed, shift, and/or shape electric loads to better match
+                                                electric grid needs)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="57" height="85" src="assets/topics/electrification.png" />
+                                        <p>
+                                            <strong>End-use electrification</strong>
+                                            <br />
+                                            <span>(switch from fossil-based to electric end-use services)</span>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="topics blue">
+                                    <h2 class="topic-header">DEPLOYMENT DYNAMICS</h2>
+                                    <div class="topic">
+                                        <img width="97" height="70" src="assets/topics/performance.png" />
+                                        <p>
+                                            <strong>Elevate minimum performance codes/standards</strong>
+                                            <br />
+                                            <span>(raise market-available performance "floor")</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <div class="placeholder" style="min-width: 97px; height: 70px"></div>
+                                        <p>
+                                            <strong>Introduce breakthrough technologies</strong>
+                                            <br />
+                                            <span>(raise market-available performance "ceiling")</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <img width="97" height="70" src="assets/topics/accelerate.png" />
+                                        <p>
+                                            <strong>Accelerate electrification</strong>
+                                            <br />
+                                            <span>(escalate annual fuel switching rates)</span>
+                                        </p>
+                                    </div>
+
+                                    <div class="topic">
+                                        <div class="placeholder" style="min-width: 97px; height: 70px"></div>
+                                        <p>
+                                            <strong>Accelerate retrofit decisions</strong>
+                                            <br />
+                                            <span>(add annual <strong><em>early</em></strong> replacement
+                                                rates)</span>
+                                        </p>
+                                    </div>
+                                </section>
+
+                                <section class="separator">
+                                    <strong> Demand-side (BTO Scout) </strong>
+                                    <div class="divider"></div>
+                                    <strong> Supply-side (Brattle GridSIM) </strong>
+                                </section>
+
+                                <div class="topic">
+                                    <img width="71" height="105" src="assets/topics/decarbonization.png" />
+                                    <p>
+                                        <strong>Power grid decarbonization</strong>
+                                        <br />
+                                        <span>(emissions decline to target by certain year)</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article id="benchmark" class="benchmark">
+                            <div class="padding">
+                                <h3 class="title">
+                                    Benchmark scenarios are differentiated primarily by levels of
+                                    efficiency, electrification, and grid decarbonization
+                                </h3>
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="thin">Benchmark scenario</th>
+                                                <th class="thin">Efficiency and electrification</th>
+                                                <th class="thin">Grid decarbonization</th>
+                                                <th class="wide">Question addressed</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="teal">1: Low</td>
+                                                <td>Aggressive Electrification Only</td>
+                                                <td>Reference Case (GridSIM Reference Case)</td>
+                                                <td>
+                                                    How impactful is aggressive electrification on emissions
+                                                    without efficiency and under slow grid decarbonization?
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="teal">2: Moderate</td>
+                                                <td>Moderately Aggressive</td>
+                                                <td>
+                                                    Moderately Aggressive (80% Reduction from 2005 Levels by 2050)
+                                                </td>
+                                                <td>
+                                                    Is mostly market-driven demand-side measure deployment with
+                                                    moderate grid decarbonization sufficient to yield deep
+                                                    reductions in building emissions?
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="teal">3: Aggressive</td>
+                                                <td>Aggressive</td>
+                                                <td>Aggressive (100% Reduction by 2035)</td>
+                                                <td>
+                                                    How deeply can building emissions be reduced under a best-case
+                                                    scenario of demand-side measure deployment and grid
+                                                    decarbonization?
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="toggles">
+                            <div class="padding">
+                                <!-- <button id="analysis-button" class="toggle active" onclick="activateAnalysis()"> -->
+                                <button id="analysis-button" class="toggle active">
+                                    Measures and Deployment Dynamics
+                                </button>
+
+                                <!-- <button id="benchmark-button" class="toggle" onclick="activateBenchmark()"> -->
+                                <button id="benchmark-button" class="toggle">
+                                    Benchmark Scenarios
+                                </button>
+                            </div>
+                        </article>
+                    </section>
+
+                </article>
+            </div>
+        </article>
+
+        <!-- origion -->
+
+
+
+    </div>
+    <div id="tabs-5">
+        <article id="conclusion" class="conclusion">
+            <div class="padding">
+                <section class="head">
+                    <div class="description">
+                        <p style="margin-left: 150px;width: 600px;margin-top: 90px;text-indent: 20px;">
+                            We are pleased to announce the release of a public version of our dataset, which is
+                            accessible at <a href="http://globe2060.org/">http://globe2060.org/.</a> Our dataset is
+                            established based on the IEA database, which has clear distinctions between the end uses
+                            relevant to residential and commercial energy activities in its energy balance sheet.
+                            <br>
+                            To ensure the reliability of our database, we used the <a href="">IEA dataset</a> as the
+                            primary reference to compile comprehensive and trustworthy data tables for each
+                            carbon-emitting country. For major emitters such as <a href="">China</a>, the <a
+                                href="">United States</a>, and <a href="">India</a>, we accounted for and calibrated the
+                            building energy consumption data and the corresponding carbon emissions data based on the
+                            baseline dataset. For other carbon-emitting countries, we collected, cleaned, and validated
+                            survey reports and statistical results from regional governments and research institutions,
+                            which were then integrated with the baseline dataset to build a unified and standardized
+                            database.
+                        </p>
+                    </div>
+                    <div class="total_picture">
+                        <img alt="total_image" src="image_temp/total.jpg" style="width: 800px; height: auto" />
+                    </div>
+                </section>
+                <div class="divider"></div>
+                <h3 class="title white">
+                    For more information, please reach out to the study authors
+                </h3>
+                <section class="authors">
+                    <div class="group">
+                        <h4>Lawrence Berkeley National Laboratory</h4>
+                        <div class="group-container">
+                            <div class="author">
+                                <a href="mailto:jared.langevin@lbl.gov">
+                                    <div class="image-placeholder">
+                                        <img alt="Jared Langevin: Research Scientist" src="assets/authors/jared.jpg" />
+                                    </div>
+                                    <strong>Prof. Minda Ma</strong>
+                                    <br />
+                                    <strong>Langevin</strong>
+                                    <br />
+                                    <span>Research Scientist</span>
+                                </a>
+                            </div>
+
+                            <div class="author">
+                                <a href="mailto:asatremeloy@lbl.gov">
+                                    <div class="image-placeholder">
+                                        <img alt="Aven Satre-Meloy: Research Scientist" src="assets/authors/aven.png" />
+                                    </div>
+                                    <strong>Aven</strong>
+                                    <br />
+                                    <strong>Satre-Meloy</strong>
+                                    <br />
+                                    <span>Research Scientist</span>
+                                </a>
+                            </div>
+
+                            <div class="author">
+                                <div class="image-placeholder">
+                                    <img alt="Andrew Satchwell: Research Scientist" src="assets/authors/andrew.jpg" />
+                                </div>
+                                <strong>Andrew</strong>
+                                <br />
+                                <strong>Satchwell</strong>
+                                <br />
+                                <span>Research Scientist</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <h4>The Brattle Group</h4>
+                        <div class="group-container">
+                            <div class="author">
+                                <div class="image-placeholder">
+                                    <img alt="Ryan Hledik: Principal" src="assets/authors/ryan.png" />
+                                </div>
+                                <strong>Ryan</strong>
+                                <br />
+                                <strong>Hledik</strong>
+                                <br />
+                                <span>Principal</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </article>
+    </div>
+</body>
+
+</html>

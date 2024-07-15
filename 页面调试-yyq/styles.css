@@ -1,0 +1,590 @@
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: "normal";
+  src: url("fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: "normal";
+  font-weight: 900;
+  src: url("fonts/SourceSansPro-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: "normal";
+  font-weight: 600;
+  src: url("fonts/SourceSansPro-Semibold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("fonts/SourceSansPro-Regular.ttf") format("truetype");
+}
+body {
+  font-size: 22px;
+  font-weight: 600;
+  font-family: "Source Sans Pro";
+  color: rgb(25, 83, 130);
+  margin: unset;
+}
+
+h3.title {
+  font-weight: 900;
+  font-size: min(4vw, 28px);
+  color: #003a70;
+}
+
+div.glide {
+  max-width: min(60vw, 422px);
+}
+div.glide div.glide__bullets {
+  bottom: unset;
+  position: relative;
+  margin-bottom: 2em;
+}
+div.glide div.glide__bullets button.glide__bullet {
+  background-color: #d9d9d9;
+}
+div.glide div.glide__bullets button.glide__bullet.glide__bullet--active {
+  background-color: #008aab;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: 0.6em;
+  line-height: 0;
+}
+
+div.divider {
+  height: 2px;
+  border-bottom: 2px solid #d9d9d9;
+  flex: 1;
+  width: 100%;
+}
+
+a.read {
+  display: block;
+  text-decoration: unset;
+  background-color: #008aab;
+  border-radius: 50px;
+  height: 68px;
+  min-width: 200px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a.read.unlimited {
+  max-width: unset;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+article div.padding {
+  /* max-width: 1200px; */
+  margin-left: 0px; /* 或者其他更小的值，甚至0 */
+  max-width: none; /* 移除最大宽度限制 */
+  gap: 20px;
+}
+
+article.hero {
+  /* background-image: url("./assets/background.png"); */
+  /* background-image: url("./image_temp/WechatIMG3657.jpg"); */
+  /* background-size: cover;   */
+  background-size: 620px;  
+  /* background-size: auto;   */
+  background-repeat: no-repeat;
+  padding: 5rem 0 5rem;
+  background-color: rgb(25, 83, 130);
+  /* background-color: rgb(0,49,89); */
+  background-position: right;
+  height: 450px;
+}
+article.hero h1 {
+  display: block;
+  font-weight: 800; 
+  font-size: min(6vw, 4rem);
+  /* font-size: 40pt; */
+  /* margin: 0 0 0 0px; */
+  color: white;
+  padding: 10px; /* 调整padding减小背景 */
+  margin: 5px;
+}
+article.hero div.logos {
+  display: flex;
+  flex-direction: column;
+  gap: 51px;
+  margin-top: 31px;
+}
+article.hero div.logos a {
+  width: fit-content;
+}
+
+article.notes {
+  background: #008aab;
+  padding: 2.8rem 0 2.8rem;
+}
+article.notes div.paragraphs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 2vw;
+}
+article.notes div.paragraphs p {
+  font-size: 20px;
+  margin: none; /* 清除默认外边距 */
+  display: block;
+  flex: none;
+  font-weight: 400;
+  min-width: 300px;
+}
+
+article.slides {
+  background: linear-gradient(180deg, #004366 0%, #003a70 100%);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+article.slides img.labels {
+  width: min(60vw, 800px);
+}
+article.slides div.padding {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+article.slides div.padding section.tabs div{
+  font-size: 20px;
+}
+article.slides div.padding article#slides-container {
+  overflow: auto;
+  max-width: 1180px;
+  max-height: 1070px;
+  border-radius: 5px;
+  background-color: white;
+}
+article.slides div.padding section.slide {
+  background-color: white;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  min-height: 750px;
+  max-width: min(80vw, 1034px);
+  padding: min(1vw, 24px);
+  display: flex;
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+article.slides div.padding section.slide#tableau-slide {
+  display: none;
+}
+article.slides div.padding section.slide.visible {
+  opacity: 1;
+  position: relative;
+  z-index: 1;
+}
+article.slides div.padding section.slide.visible#tableau-slide {
+  display: flex;
+}
+article.slides div.padding section.slide#efficiency-slide div.main section.images img {
+  flex-basis: max(250px, 15vw);
+}
+article.slides div.padding section.slide#efficiency-slide div.main section.images img.special {
+  flex-basis: max(310px, 18vw);
+}
+article.slides div.padding section.slide div.main {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+article.slides div.padding section.slide div.main section.paragraphs {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  flex: 1;
+  min-width: 50%;
+}
+article.slides div.padding section.slide div.main section.images {
+  display: grid;
+  width: 100%;
+  max-width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+article.slides div.padding section.slide div.main section.images img {
+  max-width: 100%;
+}
+article.slides div.padding section.slide div.main img.adjust {
+  width: 100%;
+}
+article.slides div.padding section.slide section.caption {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+article.navigation {
+  background: #003a70;
+  padding-bottom: 2rem;
+}
+
+section.tabs {
+  display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  gap: 8px;
+}
+
+section.tabs button {
+  display: block;
+  border: unset;
+  color: unset;
+  background-color: #007299;
+  padding: unset;
+  width: min(15vw, 109px);
+  height: min(15vw, 109px);
+  filter: brightness(0.8);
+}
+section.tabs button img {
+  pointer-events: none;
+  width: min(15vw, 109px);
+  height: min(15vw, 109px);
+}
+section.tabs button.active {
+  background-color: #008aab;
+  width: 134px;
+  width: min(20vw, 134px);
+  filter: brightness(1);
+}
+section.tabs button.active:hover {
+  cursor: unset;
+}
+section.tabs button:hover {
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+article.overview {
+  background-color: white;
+  color: black;
+}
+article.overview div.padding {
+  display: flex;
+  justify-content: center;
+  padding: 54px;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+article.overview div.padding section.description {
+  font-weight: 400;
+  max-width: 400px;
+}
+article.overview div.padding section.arguments {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+article.overview div.padding section.arguments div.argument {
+  color: #003a70;
+  font-weight: 400;
+  font-size: 20px;
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  background: linear-gradient(81.77deg, rgba(217, 217, 217, 0.28) 0%, rgba(245, 245, 245, 0.78) 100%);
+  padding: 20px;
+}
+article.overview div.padding section.arguments div.argument img {
+  min-width: 125px;
+}
+article.overview div.padding section.arguments div.argument p {
+  flex: 1;
+  flex-basis: 300px;
+}
+
+article.analysis {
+  background-color: white;
+  color: black;
+  display: none;
+}
+article.analysis.visible {
+  display: block;
+}
+article.analysis div.padding {
+  font-size: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 200px;
+  display: flex;
+  margin: auto;
+}
+article.analysis div.padding h3.title {
+  flex-basis: 100%;
+  text-align: left;
+}
+article.analysis div.padding div.topic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 500px;
+}
+article.analysis div.padding div.topic p {
+  font-weight: 400;
+  width: 100%;
+}
+article.analysis div.padding section.topics {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 500px;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+}
+article.analysis div.padding section.topics h2.topic-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  color: white;
+  width: 100%;
+  height: 44px;
+  font-size: 20px;
+}
+article.analysis div.padding section.topics.green h2.topic-header {
+  background-color: #37ba95;
+}
+article.analysis div.padding section.topics.blue h2.topic-header {
+  background-color: #003a70;
+}
+article.analysis div.padding section.separator {
+  color: #6185a6;
+  font-size: 16px;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 6px;
+  flex-basis: 100%;
+}
+article.analysis div.padding section.separator div.divider {
+  height: 2px;
+  border-bottom: 2px dotted #6185a6;
+  flex: 1;
+  width: 100%;
+}
+
+article.benchmark {
+  display: none;
+  color: #6185a6;
+}
+article.benchmark.visible {
+  display: block;
+}
+article.benchmark div.padding {
+  flex-direction: column;
+  max-width: 1150px;
+  margin: auto;
+  padding: 5vw;
+}
+article.benchmark div.padding div.table-container {
+  overflow-x: auto;
+}
+article.benchmark div.padding table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+article.benchmark div.padding table thead {
+  font-size: 20px;
+  background-color: rgb(0, 43, 84);
+  color: white;
+}
+article.benchmark div.padding table thead tr th {
+  padding: 1rem;
+}
+article.benchmark div.padding table thead tr th.thin {
+  width: 150px;
+}
+article.benchmark div.padding table thead tr th.wide {
+  width: 400px;
+}
+article.benchmark div.padding table tbody {
+  font-size: 20px;
+  font-weight: 400;
+}
+article.benchmark div.padding table tbody tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+article.benchmark div.padding table tbody td {
+  padding: 1rem;
+}
+article.benchmark div.padding table tbody td.teal {
+  background-color: rgb(34, 151, 170);
+  color: white;
+}
+
+article.toggles div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+article.toggles div button.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  height: 3rem;
+  width: 300px;
+  color: #003a70;
+  font-weight: 400;
+  font-size: 16px;
+  background-color: #e5e5e5;
+  border: unset;
+  box-shadow: 0px 4px 12px #e5e5e5;
+}
+article.toggles div button.toggle.active {
+  background-color: transparent;
+  color: #003a70;
+  box-shadow: unset;
+  border: 1px solid #003a70;
+}
+article.toggles div button.toggle.active:hover {
+  cursor: initial;
+  filter: brightness(1);
+  border: 2px solid #003a70;
+}
+article.toggles div button.toggle:hover {
+  filter: brightness(1.05);
+  cursor: pointer;
+}
+
+article.conclusion {
+  color: rgb(255, 255, 255);
+  background-color: #008aab;
+  /* background-image: url("./assets/conclusion.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+article.about_globe {
+  color: rgb(255, 255, 255);
+  background-color: #137891;
+  /* background-image: url("./assets/conclusion.png"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+article.about_globe div.padding {
+  padding: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  width: 100%;
+}
+article.conclusion div.padding {
+  padding: 1rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  width: 100%;
+}
+article.about_globe div.padding section.head {
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+article.about_globe div.padding section.head div.description {
+  max-width: 475px;
+}
+article.conclusion div.padding section.head {
+  display: flex;
+  flex-direction: row;
+  gap: 10vw;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+article.conclusion div.padding section.head div.description {
+  max-width: 475px;
+}
+article.conclusion div.padding section.head div.book {
+  position: relative;
+  width: max(32vw, 352px);
+  max-width: 500px;
+}
+article.conclusion div.padding section.head div.book img {
+  width: 100%;
+}
+article.conclusion div.padding div.divider {
+  width: 100%;
+  height: 2px;
+  border-bottom: 2px solid white;
+}
+article.conclusion div.padding h3.title.white {
+  color: white;
+}
+article.conclusion div.padding section.authors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+article.conclusion div.padding section.authors div.group {
+  flex-grow: 1;
+}
+article.conclusion div.padding section.authors div.group h4 {
+  color: #f5f5f5;
+  text-transform: uppercase;
+}
+article.conclusion div.padding section.authors div.group div.group-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: min(6vw, 4rem);
+  justify-content: center;
+}
+article.conclusion div.padding section.authors div.group div.group-container div.author {
+  text-align: center;
+}
+article.conclusion div.padding section.authors div.group div.group-container div.author a {
+  text-decoration: unset;
+  color: unset;
+}
+article.conclusion div.padding section.authors div.group div.group-container div.author div.image-placeholder {
+  border-radius: 50%;
+  width: 10rem;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+}
+article.conclusion div.padding section.authors div.group div.group-container div.author div.image-placeholder img {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=styles.css.map */

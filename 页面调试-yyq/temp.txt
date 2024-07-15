@@ -1,0 +1,44 @@
+          
+  
+          <section class="slide" id="PyLMDI-slide">
+            <h3 class="title">
+              <!-- Early retrofits and codes and standards are key deployment levers -->
+            </h3>
+            <div class="main">
+              <section class="paragraphs">
+                <p>
+                  A timely analysis for carbon emission reduction in buildings is an effective global response to the crisis of climate change. The logarithmic mean Divisia index (LMDI) decomposition analysis approach has been extensively used to assess the carbon emission reduction potential of the buildings sector. In order to simplify the calculation process and to expand its application scope, a new open-source Python tool (PyLMDI) developed in this article is used to compute the results of LMDI decomposition analysis, including multiplicative and additive decomposition. Users can quickly obtain the decomposition result by initializing the input data through a simple class data structure. In addition, the carbon emissions from commercial buildings are used as a numerical example to demonstrate the function of PyLMDI. In summary, PyLMDI is a potential calculation tool for index decomposition analysis that can provide calculation guidance for carbon emission reduction in the buildings sector. The data and codes for the numerical example are also included.
+
+                </p>
+              </section>
+  
+              <img
+                alt="Low Decarbonization Scenarios; Moderate Decarbonization Scenarios; Aggresive Decarbonization Scenarios"
+                class="adjust" src="image_temp/artical4.jpg" />
+              </div>
+          </section>
+          
+          <section class="slide" id="GLOBUS-slide">
+            <h3 class="title">
+              <!-- Building efficiency and flexibility reduce the cost of grid
+              decarbonization -->
+            </h3>
+            <div class="main">
+              <section class="paragraphs">
+                <p>
+                  In 2024, we create a global building stock model (GLOBUS) incorporating turnover and renovations.
+                  GLOBUS’s primary contribution lies in providing a dataset of global building stock turnover using scenarios that incorporate various levels of building renovation. 
+                  <br>
+                  By unifying the evaluation indicators, the dataset empowers building science researchers to perform comparative analyses based on floorspace. 
+                  <br>
+                  For more details, please refer to <a href="https://doi.org/10.1016/j.ynexs.2024.100019">https://doi.org/10.1016/j.ynexs.2024.100019.</a>
+
+                </p>
+              </section>
+  
+              <section class="images">
+                <img alt="National Power System Cost Savings by End Use" src="image_temp/artical3.jpg" />
+              </section>
+  
+            </div>
+          </section>
