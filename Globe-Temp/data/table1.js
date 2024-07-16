@@ -44,7 +44,7 @@ const tableData1 = {
   ]
 };
 
-function getData() {
+function getData1() {
 	return tableData1;
   }
   

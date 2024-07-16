@@ -144,6 +144,7 @@ article.notes div.paragraphs p {
   margin: none; /* 清除默认外边距 */
   display: block;
   flex: none;
+  color: white;
   font-weight: 400;
   min-width: 300px;
 }
@@ -252,6 +253,8 @@ section.tabs button {
   border: unset;
   color: unset;
   background-color: #007299;
+  color: white;
+  font-size: 18px;
   padding: unset;
   width: min(15vw, 109px);
   height: min(15vw, 109px);
@@ -588,3 +591,9 @@ article.conclusion div.padding section.authors div.group div.group-container div
 }
 
 /*# sourceMappingURL=styles.css.map */
+
+/* article.publication_figure div.container {
+  text-align: center; 
+  margin-bottom: 20px; 
+  flex: 1 1 calc(33.33% - 20px);
+} */

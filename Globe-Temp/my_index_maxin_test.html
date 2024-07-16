@@ -12,13 +12,13 @@
   <!-- <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script> -->
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+  <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.png" /> -->
   <title>我的GLOBE测试用</title>
   <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
   <script src="plugins/glide.js"></script>
   <script defer src="myindex.js"></script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
@@ -32,7 +32,9 @@
         }
     };
 </script>
-<script src="data/table1.js"></script>
+<script src="data\table1.js"></script>
+<script src="data\table2.js"></script>
+<script src="data\table3.js"></script>
 
 
   <style>
@@ -186,24 +188,44 @@
     </article>
   </div>
 
+  <div id="tabs-1">
+    <article id="about_globe" class="about_globe">
+      <div class="padding">
+        <section class="head">
+          <div class="description">
+            <p style="margin-left: 200px;width: 600px;margin-top: 80px;text-indent: 40px;">
+              We are pleased to announce the release of a public version of our dataset, which is accessible at <a href="http://globe2060.org/">http://globe2060.org/.</a> Our dataset is established based on the IEA database, which has clear distinctions between the end uses relevant to residential and commercial energy activities in its energy balance sheet.</p>
+              <!-- <br> -->
+            <p style="margin-left: 200px;width: 600px;margin-top: 30px;text-indent: 40px;">
+              To ensure the reliability of our database, we used the <a href="">IEA dataset</a> as the primary reference to compile comprehensive and trustworthy data tables for each carbon-emitting country. For major emitters such as <a href="">China</a>, the <a href="">United States</a>, and <a href="">India</a>, we accounted for and calibrated the building energy consumption data and the corresponding carbon emissions data based on the baseline dataset. For other carbon-emitting countries, we collected, cleaned, and validated survey reports and statistical results from regional governments and research institutions, which were then integrated with the baseline dataset to build a unified and standardized database.
+            </p>
+          </div>
+          <div class="total_picture">
+            <img alt="total_image" src="image_temp/total.jpg" style="width: 800px; height: auto"/>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+
   <div id="tabs-2">
     <article style="text-align: center; margin-top: 40px;">
       <section style="position: relative;">
-        <!-- <h2 style="position: absolute; top: 0; left: 0;">Publications</h2> -->
-        <h2>Publications</h2>
+        <h2 >Publications</h2>
         <p style="text-align: justify; display: inline-block; width: 70%; margin-top: 20px;">
           In 2023-2024, some of GLOBE's noteworthy applications have been featured in international journals like Nexus
           (Cell Press Partner Journal), Cell Reports Sustainability, Advances in Applied Energy, 
           Applied Energy, and Sustainable Cities and Society.
       </p>
-        <div style="padding: 10px; margin-top: 20px; width: 70%; margin-left: auto; margin-right: auto;">
+        <div style="border: 1px solid #ccc; padding: 10px; margin-top: 20px; width: 70%; margin-left: auto; margin-right: auto;">
           <div style="text-align: left;">
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
                   [1] Ma M, Zhou N *, Feng W, Yan J. Challenges and Opportunities in the Global Net-Zero Building Sector. Cell Reports Sustainability 2024. Forthcoming.<br>
               </p>
       
+  
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
-                  [2] Zhang S, Ma M*, Zhou N*, Yan J, Feng W, Yan R, et al. Estimation of Global Building Stocks by 2070: Unlocking Renovation Potential. Nexus 2024; 1(3):100019.<br>
+                <a href="#publications1">[2] Zhang S, Ma M*, Zhou N*, Yan J, Feng W, Yan R, et al. Estimation of Global Building Stocks by 2070: Unlocking Renovation Potential. Nexus 2024; 1(3):100019.</a><br>
               </p>
       
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
@@ -211,19 +233,19 @@
               </p>
       
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
-                  [4] Xiang X, Zhou N, Ma M*, Feng W*, Yan R. Global transition of operational carbon in residential buildings since the millennium. Advances in Applied Energy 2023;11:100145.<br>
+                <a href="#publications2">[4] Xiang X, Zhou N, Ma M*, Feng W*, Yan R. Global transition of operational carbon in residential buildings since the millennium. Advances in Applied Energy 2023;11:100145.</a><br>
               </p>
       
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
-                  [5] Yan R, Ma M*, Zhou N, Feng W, Xiang X, Mao C. Towards COP27: Decarbonization patterns of residential building in China and India. Applied Energy 2023;352:122003.<br>
+                  <a  href="#publications5"> [5] Yan R, Ma M*, Zhou N, Feng W, Xiang X, Mao C. Towards COP27: Decarbonization patterns of residential building in China and India. Applied Energy 2023;352:122003.</a><br>
               </p>
       
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
-                  [6] Yan R, Chen M, Xiang X, Feng W, Ma M*. Heterogeneity or illusion? Track the carbon Kuznets curve of global residential building operations. Applied Energy 2023;347:121441.<br>
+                  <a href="#publications6">  [6] Yan R, Chen M, Xiang X, Feng W, Ma M*. Heterogeneity or illusion? Track the carbon Kuznets curve of global residential building operations. Applied Energy 2023;347:121441.</a> <br>
               </p>
       
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
-                  [7] Zhang S, Zhou N, Feng W, Ma M*, Xiang X, You K. Pathway for decarbonizing residential building operations in the US and China beyond the mid-century. Applied Energy 2023;342:121164.<br>
+                <a href="#publications3">[7] Zhang S, Zhou N, Feng W, Ma M*, Xiang X, You K. Pathway for decarbonizing residential building operations in the US and China beyond the mid-century. Applied Energy 2023;342:121164.</a><br>
               </p>
       
               <p style="margin: 0; padding: 1px 0; margin-bottom: 10px;">
@@ -245,69 +267,73 @@
     <div style=" text-align: center;">
       -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
     </div>
-    <!-- margin-top: 60px; border-radius: 10px;  padding: 20px; -->
-    <article style="background-color: rgb(0,138,171);">
+  
+    <article style="margin-top: 60px; background-color: rgb(0,138,171); padding: 20px; border-radius: 10px;">
       <div class="container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-          <div class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.33% - 20px);">
-              <a href="https://doi.org/10.1016/j.ynexs.2024.100019">
-                  <img alt="publication-1" src="assets/images/Publications-1.png" style="width: 100%; height: auto; margin-bottom: 10px;">
-                  https://doi.org/10.1016/j.ynexs.2024.100019
-              </a>
-          </div>
-  
-          <div class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.33% - 20px);">
-              <a href="https://doi.org/10.1016/j.adapen.2023.100145">
-                  <img alt="publication-2" src="assets/images/Publications-2.png" style="width: 100%; height: auto; margin-bottom: 10px;">
-                  https://doi.org/10.1016/j.adapen.2023.100145
-              </a>
-          </div>
-  
-          <div class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.33% - 20px);">
-              <a href="https://doi.org/10.1016/j.apenergy.2023.121164">
-                  <img alt="publication-3" src="assets/images/Publications-3.png" style="width: 100%; height: auto; margin-bottom: 10px;">
-                  https://doi.org/10.1016/j.apenergy.2023.121164
-              </a>
-          </div>
-  
-          <div class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.33% - 20px);">
-              <a href="https://doi.org/10.1016/j.apenergy.2023.122003">
-                  <img alt="publication-5" src="assets/images/Publications-5.png" style="width: 100%; height: auto; margin-bottom: 10px;">
-                  https://doi.org/10.1016/j.apenergy.2023.122003
-              </a>
-          </div>
-  
-          <div class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.33% - 20px);">
-              <a href="http://127.0.0.1:3000/index.html">
-                  <img alt="publication-4" src="assets/images/Publications-4.png" style="width: 100%; height: auto; margin-bottom: 10px;">
-                  https://doi.org/10.1016/j.ynexs.2024.100019
-              </a>
-          </div>
-  
-          <div class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.33% - 20px);">
-              <a href="https://doi.org/10.1016/j.apenergy.2023.121441">
-                  <img alt="publication-6" src="assets/images/Publications-6.png" style="width: 100%; height: auto; margin-bottom: 10px;">
-                  https://doi.org/10.1016/j.apenergy.2023.121441
-              </a>
-          </div>
+        <div id="publications1" class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.3% - 20px);">
+          <img alt="publication-1" src="assets/images/Publications-1.png" style="width: 100%; height: auto; margin-bottom: 10px;">
+          Challenges and Opportunities in the Global Net-Zero Building Sector.
+        </div>
+    
+        <div id="publications2" class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.3% - 20px);">
+          <a href="https://doi.org/10.1016/j.adapen.2023.100145">
+            <img alt="publication-2" src="assets/images/Publications-2.png" style="width: 100%; height: auto;">
+            Global transition of operational carbon in residential buildings since the millennium
+            https://doi.org/10.1016/j.adapen.2023.100145
+          </a>
+        </div>
+    
+        <div id="publications3" class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.3% - 20px);">
+          <a href="https://doi.org/10.1016/j.apenergy.2023.121164">
+            <img alt="publication-3" src="assets/images/Publications-3.png" style="width: 100%; height: auto;">
+            Pathway for decarbonizing residential building operations in the US and China beyond the mid-century
+            https://doi.org/10.1016/j.apenergy.2023.121164
+          </a>
+        </div>
+    
+        <div id="publications4" class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.3% - 20px);">
+          <a href="https://doi.org/10.1016/j.ynexs.2024.100019">
+            <img alt="publication-4" src="assets/images/Publications-4.png" style="width: 100%; height: auto;">
+            Estimation of Global Building Stocks by 2070: Unlocking Renovation Potential
+            https://doi.org/10.1016/j.ynexs.2024.100019
+          </a>
+        </div>
+    
+        <div id="publications5" class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.3% - 20px);">
+          <a href="https://doi.org/10.1016/j.apenergy.2023.122003">
+            <img alt="publication-5" src="assets/images/Publications-5.png" style="width: 100%; height: auto;">
+            Towards COP27: Decarbonization patterns of residential building in China and India
+            https://doi.org/10.1016/j.apenergy.2023.122003
+          </a>
+        </div>
+    
+        <div id="publications6" class="inner-container" style="text-align: center; margin-bottom: 20px; flex: 1 1 calc(33.3% - 20px);">
+          <a href="https://doi.org/10.1016/j.apenergy.2023.121441">
+            <img alt="publication-6" src="assets/images/Publications-6.png" style="width: 100%; height: auto;">
+            Heterogeneity or illusion? Track the carbon Kuznets curve of global residential building operations
+            https://doi.org/10.1016/j.apenergy.2023.121441
+          </a>
+        </div>
       </div>
-  </article>
+    </article>
+    
   </div>
 
   <div id="tabs-3">
     <article class="slides">
       <div class="padding">
-        <!-- <section id="tabs" class="tabs">
+        <section id="tabs3" class="tabs">
   
           <button id="paper_1" class="tab">
-            <div width="109" height="109"> paper_1 </div>
+            paper_1
           </button>
           <button id="paper_2" class="tab">
-            <div width="109" height="109"> paper_2 </div>
+            paper_2
           </button>
           <button id="paper_3" class="tab">
-            <div width="109" height="109"> paper_3 </div>
+            paper_3
           </button>
-        </section> -->
+        </section>
   
         <article id="slides-container">
           <section class="slide visible" id="paper_1-slide">
@@ -316,7 +342,7 @@
                 <div class="padding" style="display: flex; align-items: center;">
                     <h3 class="title">Carbon emissions of residential building operations</h3>
                     <div class="topic" style="width: 80%;  padding: 10px; border-radius: 5px;">
-                        <img style="width: 100%; height: auto; display: block; margin: 0;" src="assets\images\Publications-1.png" alt="Energy & Emissions" />
+                        <img style="width: 100%; height: auto; display: block; margin: 0;" src="assets/images/Energy-1.png" alt="Energy & Emissions" />
                     </div>
                 </div>
             </div>
@@ -335,7 +361,7 @@
                     </table>
                     <script>
                       $(document).ready(function() {
-                        const data = getData();
+                        const data = getData1();
                         const rows = data.rows;
                         const columns = data.headers;
                     
@@ -367,180 +393,99 @@
             
             <!-- <br> -->
             <article class="toggles">
-              <div class="padding">
-                <!-- <button id="analysis-button" class="toggle active" onclick="activateAnalysis()"> -->
-                <button id="analysis-button" class="toggle active">
-                  Measures and Deployment Dynamics
-                </button>
-          
-                <!-- <button id="benchmark-button" class="toggle" onclick="activateBenchmark()"> -->
+              <div class="padding" id="carbon">
+                <button id="energy-fig-button" class="toggle active">
+                  Figure
+                </button> 
                 <button id="benchmark-button" class="toggle">
-                  Benchmark Scenarios
+                  Data
+                </button>
+              </div>
+              <div class="padding" id="energy">
+                <button id="analysis-button" class="toggle">
+                  Figure
+                </button> 
+                <button id="benchmark-button" class="toggle">
+                  Data
+                </button>
+              </div>
+              <div class="padding" id="scio">
+                <button id="scio-fig-button" class="toggle">
+                  Figure
+                </button>          
+                <button id="scio-tab-button" class="toggle">
+                  Data
                 </button>
               </div>
             </article>
           </section>
   
-          <!-- <section class="slide" id="paper_2-slide">
+          <section class="slide" id="paper_2-slide">
             <article id="analysis" class="analysis visible">
-              <div class="padding">
-                <h3 class="title">
-                  Our analysis assesses the effects of a full suite of building measures
-                  and measure deployment dynamics that could be affected by policy
-                  programs
-                </h3>
-          
-                <section class="topics green">
-                  <h2 class="topic-header">BUILDING MEASURES</h2>
-                  <div class="topic">
-                    <img width="57" height="57" src="assets/topics/efficiency.png" />
-                    <p>
-                      <strong>Energy efficiency</strong>
-                      <br />
-                      <span>(persistent reductions in energy to serve electric/fossil
-                        loads)</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <img width="57" height="57" src="assets/topics/flexibility.png" />
-                    <p>
-                      <strong>Demand flexibility</strong>
-                      <br />
-                      <span>(shed, shift, and/or shape electric loads to better match
-                        electric grid needs)</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <img width="57" height="85" src="assets/topics/electrification.png" />
-                    <p>
-                      <strong>End-use electrification</strong>
-                      <br />
-                      <span>(switch from fossil-based to electric end-use services)</span>
-                    </p>
-                  </div>
-                </section>
-          
-                <section class="topics blue">
-                  <h2 class="topic-header">DEPLOYMENT DYNAMICS</h2>
-                  <div class="topic">
-                    <img width="97" height="70" src="assets/topics/performance.png" />
-                    <p>
-                      <strong>Elevate minimum performance codes/standards</strong>
-                      <br />
-                      <span>(raise market-available performance "floor")</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <div class="placeholder" style="min-width: 97px; height: 70px"></div>
-                    <p>
-                      <strong>Introduce breakthrough technologies</strong>
-                      <br />
-                      <span>(raise market-available performance "ceiling")</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <img width="97" height="70" src="assets/topics/accelerate.png" />
-                    <p>
-                      <strong>Accelerate electrification</strong>
-                      <br />
-                      <span>(escalate annual fuel switching rates)</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <div class="placeholder" style="min-width: 97px; height: 70px"></div>
-                    <p>
-                      <strong>Accelerate retrofit decisions</strong>
-                      <br />
-                      <span>(add annual <strong><em>early</em></strong> replacement
-                        rates)</span>
-                    </p>
-                  </div>
-                </section>
-          
-                <section class="separator">
-                  <strong> Demand-side (BTO Scout) </strong>
-                  <div class="divider"></div>
-                  <strong> Supply-side (Brattle GridSIM) </strong>
-                </section>
-          
-                <div class="topic">
-                  <img width="71" height="105" src="assets/topics/decarbonization.png" />
-                  <p>
-                    <strong>Power grid decarbonization</strong>
-                    <br />
-                    <span>(emissions decline to target by certain year)</span>
-                  </p>
+              <div class="container" style="border: 2px solid rgb(146,187,203); padding: 10px;">
+                <div class="padding" style="display: flex; align-items: center;">
+                    <h3 class="title">Energy consumption of residential building operations</h3>
+                    <div class="topic" style="width: 80%;  padding: 10px; border-radius: 5px;">
+                        <img style="width: 100%; height: auto; display: block; margin: 0;" src="assets\images\Energy-2.png" alt="Energy & Emissions" />
+                    </div>
                 </div>
-              </div>
+            </div>
             </article>
         
             <article id="benchmark" class="benchmark">
               <div class="padding">
-                <h3 class="title">
-                  Benchmark scenarios are differentiated primarily by levels of
-                  efficiency, electrification, and grid decarbonization
-                </h3>
-                <div class="table-container">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th class="thin">Benchmark scenario</th>
-                        <th class="thin">Efficiency and electrification</th>
-                        <th class="thin">Grid decarbonization</th>
-                        <th class="wide">Question addressed</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="teal">1: Low</td>
-                        <td>Aggressive Electrification Only</td>
-                        <td>Reference Case (GridSIM Reference Case)</td>
-                        <td>
-                          How impactful is aggressive electrification on emissions
-                          without efficiency and under slow grid decarbonization?
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="teal">2: Moderate</td>
-                        <td>Moderately Aggressive</td>
-                        <td>
-                          Moderately Aggressive (80% Reduction from 2005 Levels by 2050)
-                        </td>
-                        <td>
-                          Is mostly market-driven demand-side measure deployment with
-                          moderate grid decarbonization sufficient to yield deep
-                          reductions in building emissions?
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="teal">3: Aggressive</td>
-                        <td>Aggressive</td>
-                        <td>Aggressive (100% Reduction by 2035)</td>
-                        <td>
-                          How deeply can building emissions be reduced under a best-case
-                          scenario of demand-side measure deployment and grid
-                          decarbonization?
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                  <h3 class="title">
+                    Energy consumption of residential building operations 
+                  </h3>
+                  <div class="table-container" style="overflow: auto; height: 560px;">
+          
+                    <table id="data-table2" class="display" style="width: 100%;">
+                      <!-- <thead></thead>
+                      <tbody></tbody> -->
+                    </table>
+                    <script>
+                      $(document).ready(function() {
+                        const data = getData2();
+                        const rows = data.rows;
+                        const columns = data.headers;
+                    
+                        // 初始化 DataTable
+                        $('#data-table2').DataTable({
+                          data: rows,
+                          columns: columns,
+                          paging: false,   // Disable paging
+                          info: false,
+                          columnDefs: [
+                                      { targets: '_all', className: 'dt-body-right' } // Align all columns to the right
+                                  ],
+                          // Callback function after initialization
+                          initComplete: function() {
+                            var filter = $("#data-table2_filter");
+                            // Move filter under the title within the parent of class="padding"
+                            filter.closest('.padding').find('.title').after(filter);
+                            console.log("Filter element moved:", filter);
+                        }
+                      });
+                    
+                        // 初始渲染 MathJax
+                        MathJax.typeset();
+                      });
+                    </script>
+                  </div>
               </div>
             </article>
-        
+            
+            <!-- <br> -->
             <article class="toggles">
               <div class="padding">
+                <!-- <button id="analysis-button" class="toggle active" onclick="activateAnalysis()"> -->
                 <button id="analysis-button" class="toggle active">
-                  Measures and Deployment Dynamics
+                  Figure
                 </button>
           
+                <!-- <button id="benchmark-button" class="toggle" onclick="activateBenchmark()"> -->
                 <button id="benchmark-button" class="toggle">
-                  Benchmark Scenarios
+                  Data
                 </button>
               </div>
             </article>
@@ -548,168 +493,74 @@
   
           <section class="slide" id="paper_3-slide">
             <article id="analysis" class="analysis visible">
-              <div class="padding">
-                <h3 class="title">
-                  Our analysis assesses the effects of a full suite of building measures
-                  and measure deployment dynamics that could be affected by policy
-                  programs
-                </h3>
-          
-                <section class="topics green">
-                  <h2 class="topic-header">BUILDING MEASURES</h2>
-                  <div class="topic">
-                    <img width="57" height="57" src="assets/topics/efficiency.png" />
-                    <p>
-                      <strong>Energy efficiency</strong>
-                      <br />
-                      <span>(persistent reductions in energy to serve electric/fossil
-                        loads)</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <img width="57" height="57" src="assets/topics/flexibility.png" />
-                    <p>
-                      <strong>Demand flexibility</strong>
-                      <br />
-                      <span>(shed, shift, and/or shape electric loads to better match
-                        electric grid needs)</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <img width="57" height="85" src="assets/topics/electrification.png" />
-                    <p>
-                      <strong>End-use electrification</strong>
-                      <br />
-                      <span>(switch from fossil-based to electric end-use services)</span>
-                    </p>
-                  </div>
-                </section>
-          
-                <section class="topics blue">
-                  <h2 class="topic-header">DEPLOYMENT DYNAMICS</h2>
-                  <div class="topic">
-                    <img width="97" height="70" src="assets/topics/performance.png" />
-                    <p>
-                      <strong>Elevate minimum performance codes/standards</strong>
-                      <br />
-                      <span>(raise market-available performance "floor")</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <div class="placeholder" style="min-width: 97px; height: 70px"></div>
-                    <p>
-                      <strong>Introduce breakthrough technologies</strong>
-                      <br />
-                      <span>(raise market-available performance "ceiling")</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <img width="97" height="70" src="assets/topics/accelerate.png" />
-                    <p>
-                      <strong>Accelerate electrification</strong>
-                      <br />
-                      <span>(escalate annual fuel switching rates)</span>
-                    </p>
-                  </div>
-          
-                  <div class="topic">
-                    <div class="placeholder" style="min-width: 97px; height: 70px"></div>
-                    <p>
-                      <strong>Accelerate retrofit decisions</strong>
-                      <br />
-                      <span>(add annual <strong><em>early</em></strong> replacement
-                        rates)</span>
-                    </p>
-                  </div>
-                </section>
-          
-                <section class="separator">
-                  <strong> Demand-side (BTO Scout) </strong>
-                  <div class="divider"></div>
-                  <strong> Supply-side (Brattle GridSIM) </strong>
-                </section>
-          
-                <div class="topic">
-                  <img width="71" height="105" src="assets/topics/decarbonization.png" />
-                  <p>
-                    <strong>Power grid decarbonization</strong>
-                    <br />
-                    <span>(emissions decline to target by certain year)</span>
-                  </p>
+              <div class="container" style="border: 2px solid rgb(146,187,203); padding: 10px;">
+                <div class="padding" style="display: flex; align-items: center;">
+                    <h3 class="title">Socio-economic indicators of residential buildings</h3>
+                    <div class="topic" style="width: 80%;  padding: 10px; border-radius: 5px;">
+                        <img style="width: 100%; height: auto; display: block; margin: 0;" src="assets\images\Energy-3.png" alt="Energy & Emissions" />
+                    </div>
                 </div>
-              </div>
+            </div>
             </article>
         
             <article id="benchmark" class="benchmark">
               <div class="padding">
-                <h3 class="title">
-                  Benchmark scenarios are differentiated primarily by levels of
-                  efficiency, electrification, and grid decarbonization
-                </h3>
-                <div class="table-container">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th class="thin">Benchmark scenario</th>
-                        <th class="thin">Efficiency and electrification</th>
-                        <th class="thin">Grid decarbonization</th>
-                        <th class="wide">Question addressed</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="teal">1: Low</td>
-                        <td>Aggressive Electrification Only</td>
-                        <td>Reference Case (GridSIM Reference Case)</td>
-                        <td>
-                          How impactful is aggressive electrification on emissions
-                          without efficiency and under slow grid decarbonization?
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="teal">2: Moderate</td>
-                        <td>Moderately Aggressive</td>
-                        <td>
-                          Moderately Aggressive (80% Reduction from 2005 Levels by 2050)
-                        </td>
-                        <td>
-                          Is mostly market-driven demand-side measure deployment with
-                          moderate grid decarbonization sufficient to yield deep
-                          reductions in building emissions?
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="teal">3: Aggressive</td>
-                        <td>Aggressive</td>
-                        <td>Aggressive (100% Reduction by 2035)</td>
-                        <td>
-                          How deeply can building emissions be reduced under a best-case
-                          scenario of demand-side measure deployment and grid
-                          decarbonization?
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                  <h3 class="title">
+                    Socio-economic indicators of residential buildings 
+                  </h3>
+                  <div class="table-container" style="overflow: auto; height: 560px;">
+          
+                    <table id="data-table3" class="display" style="width: 100%;">
+                      <!-- <thead></thead>
+                      <tbody></tbody> -->
+                    </table>
+                    <script>
+                      $(document).ready(function() {
+                        const data = getData3();
+                        const rows = data.rows;
+                        const columns = data.headers;
+                    
+                        // 初始化 DataTable
+                        $('#data-table3').DataTable({
+                          data: rows,
+                          columns: columns,
+                          paging: false,   // Disable paging
+                          info: false,
+                          columnDefs: [
+                                      { targets: '_all', className: 'dt-body-right' } // Align all columns to the right
+                                  ],
+                          // Callback function after initialization
+                          initComplete: function() {
+                            var filter = $("#data-table3_filter");
+                            // Move filter under the title within the parent of class="padding"
+                            filter.closest('.padding').find('.title').after(filter);
+                            console.log("Filter element moved:", filter);
+                        }
+                      });
+                    
+                        // 初始渲染 MathJax
+                        MathJax.typeset();
+                      });
+                    </script>
+                  </div>
               </div>
             </article>
-        
+            
+            <!-- <br> -->
             <article class="toggles">
               <div class="padding">
+                <!-- <button id="analysis-button" class="toggle active" onclick="activateAnalysis()"> -->
                 <button id="analysis-button" class="toggle active">
-                  Measures and Deployment Dynamics
+                  Figure
                 </button>
-
+          
+                <!-- <button id="benchmark-button" class="toggle" onclick="activateBenchmark()"> -->
                 <button id="benchmark-button" class="toggle">
-                  Benchmark Scenarios
+                  Data
                 </button>
               </div>
             </article>
-          </section> -->
+          </section>
   
         </article>
       </div>
@@ -722,19 +573,20 @@
         <div class="padding">
             <section id="tabs" class="tabs">
 
-                <button id="test" class="tab">
+                <button id="Building_stock" class="tab">
                     <!-- <img src="assets/tabs/effort.png" width="109" height="109" /> -->
-                    Paper Testiv
+                    Building stock
                 </button>
-                <button id="test2" class="tab">
+                <button id="Floorspace" class="tab">
                     <!-- <img src="assets/tabs/effort.png" width="109" height="109" /> -->
-                    Paper test2
+                    Floorspace
                 </button>
             </section>
 
             <article id="slides-container">
-                <section class="slide visible" id="test-slide">
+                <section class="slide visible" id="Building_stock-slide">
                     <h3 class="title">
+                      Building stock
                         <!-- Deep reductions in building sector energy and emissions are
           possible by 2050 -->
                     </h3>
@@ -766,8 +618,9 @@
                     </div>
                 </section>
 
-                <section class="slide" id="test2-slide">
+                <section class="slide" id="Floorspace-slide">
                     <h3 class="title">
+                      Floorspace
                         <!-- Building efficiency and electrification are critical for deep
           emissions reductions -->
                     </h3>
@@ -810,17 +663,23 @@
           <div class="padding">
               <section id="tabs2" class="tabs">
                   <button id="GLOBUS" class="tab">
-                      <!-- <img src="assets/tabs/effort.png" width="109" height="109" /> -->
                       GLOBUS
+                  </button>
+                  <button id="GLOBEVISA" class="tab">
+                     GLOBEVISA
                   </button>
                   <button id="PyLMDI" class="tab">
                       PyLMDI
+                  </button>
+                  <button id="ArchTracking" class="tab">
+                    ArchTracking
                   </button>
               </section>
 
               <article id="slides-container">
                   <section class="slide visible" id="GLOBUS-slide">
                       <h3 class="title">
+                        GLOBUS
                           <!-- Building efficiency and flexibility reduce the cost of grid
                 decarbonization -->
                       </h3>
@@ -848,8 +707,25 @@
 
                       </div>
                   </section>
+                  <section class="slide" id="GLOBEVISA-slide">
+                    <h3 class="title">
+                      GLOBEVISA
+                        <!-- Building efficiency and flexibility reduce the cost of grid
+              decarbonization -->
+                    </h3>
+                    <div class="main">
+                        <section class="paragraphs">
+                            <p>
+                              Global Battery Electric Vehicle Integrated System Assessment (GLOBEVISA) is an upcoming software program for monitoring energy demand, decarbonization process, and stock trends of EV/charging plugs/charging stations worldwide. Forthcoming.
+
+                            </p>
+                        </section>
+
+                    </div>
+                </section>
                   <section class="slide" id="PyLMDI-slide">
                       <h3 class="title">
+                        PyLMDI
                           <!-- Early retrofits and codes and standards are key deployment levers -->
                       </h3>
                       <div class="main">
@@ -876,36 +752,33 @@
                               class="adjust" src="image_temp/artical4.jpg" />
                       </div>
                   </section>
+                  <section class="slide" id="ArchTracking-slide">
+                    <h3 class="title">
+                      ArchTracking
+                        <!-- Building efficiency and flexibility reduce the cost of grid
+              decarbonization -->
+                    </h3>
+                    <div class="main">
+                        <section class="paragraphs">
+                            <p>
+                              ArchTracking is an upcoming software program for tracking the nation-regional energy and emission impacts of building decarbonization measures. Forthcoming.
+
+                            </p>
+                        </section>
+
+                    </div>
+                </section>
               </article>
           </div>
       </article>
   </div>
   
-  <div id="tabs-1">
-    <article id="about_globe" class="about_globe">
-      <div class="padding">
-        <section class="head">
-          <div class="description">
-            <p style="margin-left: 200px;width: 600px;margin-top: 80px;text-indent: 40px;">
-              We are pleased to announce the release of a public version of our dataset, which is accessible at <a href="http://globe2060.org/">http://globe2060.org/.</a> Our dataset is established based on the IEA database, which has clear distinctions between the end uses relevant to residential and commercial energy activities in its energy balance sheet.</p>
-              <!-- <br> -->
-            <p style="margin-left: 200px;width: 600px;margin-top: 30px;text-indent: 40px;">
-              To ensure the reliability of our database, we used the <a href="">IEA dataset</a> as the primary reference to compile comprehensive and trustworthy data tables for each carbon-emitting country. For major emitters such as <a href="">China</a>, the <a href="">United States</a>, and <a href="">India</a>, we accounted for and calibrated the building energy consumption data and the corresponding carbon emissions data based on the baseline dataset. For other carbon-emitting countries, we collected, cleaned, and validated survey reports and statistical results from regional governments and research institutions, which were then integrated with the baseline dataset to build a unified and standardized database.
-            </p>
-          </div>
-          <div class="total_picture">
-            <img alt="total_image" src="image_temp/total.jpg" style="width: 800px; height: auto"/>
-          </div>
-        </section>
-      </div>
-    </article>
-  </div>
   
   <article id="conclusion" class="conclusion">
     <div class="padding">
     <!-- <div class="divider"></div> -->
       <section class="authors">
-        <div class="group" style="margin-left: 400px;">
+        <div class="group" style="margin-left: 200px;">
           <h4>Co-Founders</h4>
           <div class="group-container">
             <div class="author">
@@ -934,15 +807,28 @@
               </a>
             </div>
 
+            <div class="author">
+              <!-- <a href="mailto:asatremeloy@lbl.gov"> -->
+                <div class="image-placeholder">
+                  <img alt="xin-ma" src="image_temp/maxin.png" />
+                </div>
+                <strong>Dr. Xin Ma</strong>
+                <br />
+                <strong>Senior Scientist</strong>
+                <br />
+                <span>Lawrence Berkeley National Lab</span>
+              </a>
+            </div>
           </div>
+
         </div>
 
-        <div class="group" style="margin-right: 400px;">
+        <div class="group" style="margin-right: 200px;">
           <h4>Administrator</h4>
           <div class="group-container">
             <div class="author">
               <div class="image-placeholder">
-                <img alt="Andrew Satchwell: Research Scientist" src="image_temp/Dengyanqiao.jpg" />
+                <img alt="Andrew Satchwell: Research Scientist" src="image_temp/dengyanqiao.png" />
               </div>
               <strong>Ms. Yanqiao Deng </strong>
               <br />

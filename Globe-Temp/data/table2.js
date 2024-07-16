@@ -1,4 +1,4 @@
-const tableData1 = {
+const tableData2 = {
     rows: [
         ["Europe & New Zealand", "Energy consumption", "$E$", "Peta joule $(\text{PJ})$", "15047.47", "16564.21", "14579.32"],
         ["Europe & New Zealand", "Share of residential space heating", "$E_{RSH}$", "$\%$", "62.3%", "61.6%", "57.2%"],
@@ -44,6 +44,6 @@ const tableData1 = {
     ]
 };
 
-function getData() {
-    return tableData1;
+function getData2() {
+    return tableData2;
 }

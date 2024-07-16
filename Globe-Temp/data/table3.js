@@ -1,4 +1,4 @@
-const tableData2 = {
+const tableData3 = {
     rows: [
         ["Europe & New Zealand", "Population size", "$P$", "Million persons", "659.3", "682.5", "704.8"],
         ["Europe & New Zealand", "Average household size", "$p$", "persons per household", "2.7", "2.6", "2.4"],
@@ -28,6 +28,6 @@ const tableData2 = {
     ]
 };
 
-function getData2() {
-    return tableData2;
+function getData3() {
+    return tableData3;
 }

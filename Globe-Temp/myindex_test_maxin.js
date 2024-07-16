@@ -23,10 +23,30 @@ $(document).ready(function () {
         STATE.selectedTab = $(event.target).attr("id");
 
         setActiveSlide(`${activeButton.attr("id")}-slide`, `${$(event.target).attr("id")}-slide`);
-        console.log("active button is:" + activeButton.attr("id"));
+        // console.log("active button is:" + activeButton.attr("id"));
 
     }
 
+    const onTableTabClick = (event) => {
+
+        // const tabs = $(event.target).parents().closest('section').children();
+        const tabs = $(event.target).parent().children();
+        const activeButton = tabs.filter(".active");
+        if ($(event.target).attr("id") === activeButton.attr("id")) {
+            return;
+        }
+
+        activeButton.removeClass("active");
+        $(event.target).addClass("active");
+
+        STATE.selectedTab = $(event.target).attr("id");
+
+        setActiveSlide(`${activeButton.attr("id")}-slide`, `${$(event.target).attr("id")}-slide`);
+        // console.log("active button is:" + activeButton.attr("id"));
+
+        
+
+    }
 
 
     
@@ -39,6 +59,12 @@ $(document).ready(function () {
         $("[id='tabs'], [id='tabs2']").children().each(function() {
             $(this).on("click", onTabClick);
         });
+
+        $("#tabs3").children().each(function() {
+            $(this).on("click", onTableTabClick);
+        });
+
+        
         
     };
 
