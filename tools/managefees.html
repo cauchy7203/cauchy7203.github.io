@@ -73,10 +73,11 @@
 
 <body>
     <div class="container">
-        <h2>分段函数计算器</h2>
+        <h2>横向科研项目管理费计算器</h2>
         <div class="input-button-container">
             <input type="number" id="fundsInput" placeholder="请输入经费（万元）">
             <button id="calculateButton">计算管理费</button>
+            <button id="resetButton">归零</button>
         </div>
         <table id="deductionTable">
             <thead>
@@ -124,7 +125,7 @@
             </tbody>
         </table>
         <div id="deductionDetails"></div>
-        <div id="result"></div>
+        <div><strong id="result"></strong></div>
     </div>
 
 
@@ -174,34 +175,50 @@
             }
 
             function populateDeductionTable(result) {
-                var $tableBody = $('#deductionTable tbody');
-                $tableBody.empty();
-                var checkValue = 0;
-                var checktotalCost = 0;
-                // 填充 breakdown 信息到表格中
-                $.each(result.breakdown, function (index, entry) {
+                if (result) {
+                    var $tableBody = $('#deductionTable tbody');
+                    $tableBody.empty();
+                    var checkValue = 0;
+                    var checktotalCost = 0;
+                    // 填充 breakdown 信息到表格中
+                    $.each(result.breakdown, function (index, entry) {
+                        var $row = $('<tr></tr>');
+
+                        $row.append($('<td></td>').text(entry.range + '（含）'));
+                        $row.append($('<td></td>').text(parseFloat((entry.rate * 100).toFixed(4)) + '%'));
+                        $row.append($('<td></td>').text(parseFloat(entry.applicableAmount.toFixed(4))));
+                        $row.append($('<td class="cost"></td>').text(parseFloat(entry.cost.toFixed(4))));
+
+                        $tableBody.append($row);
+                        checkValue += entry.applicableAmount;
+                        checktotalCost += entry.cost;
+                    });
+
                     var $row = $('<tr></tr>');
 
-                    $row.append($('<td></td>').text(entry.range));
-                    $row.append($('<td></td>').text(entry.rate));
-                    $row.append($('<td></td>').text(entry.applicableAmount));
-                    $row.append($('<td class="cost"></td>').text(entry.cost));
+                    $row.append($('<td class="cost"></td>').append($('<strong></strong>').text("核对总金额：")));
+                    $row.append($('<td></td>'));
+                    $row.append($('<td class="cost"></td>').append($('<strong></strong>').text(parseFloat(checkValue.toFixed(4)))));
+                    $row.append($('<td class="cost"></td>').append($('<strong></strong>').text(parseFloat(checktotalCost.toFixed(4)))));
 
                     $tableBody.append($row);
-                    checkValue += entry.applicableAmount;
-                    checktotalCost += entry.cost;
+                }
+                else {
+                    var $tableBody = $('#deductionTable tbody');
+                    $tableBody.empty();
 
-                });
+                    // 填充 rateTable 信息到表格中
+                    $.each(rateTable, function (index, entry) {
+                        var $row = $('<tr></tr>');
 
-                var $row = $('<tr></tr>');
+                        $row.append($('<td></td>').text(entry.min + '-' + entry.max + '（含）'));
+                        $row.append($('<td></td>').text(parseFloat((entry.rate * 100).toFixed(4)) + '%'));
+                        $row.append($('<td></td>'));
+                        $row.append($('<td class="cost"></td>'));
 
-                $row.append($('<td class="cost"></td>').append($('<strong></strong>').text("核对总金额：")));
-                $row.append($('<td></td>'));
-                $row.append($('<td class="cost"></td>').text(parseFloat(checkValue.toFixed(4))));
-                $row.append($('<td class="cost"></td>').text(parseFloat(checktotalCost.toFixed(4))));
-
-                $tableBody.append($row);
-
+                        $tableBody.append($row);
+                    });
+                }
             }
 
 
@@ -220,16 +237,17 @@
                 $('#result').text('管理费总计为：' + parseFloat(fee_result.totalCost.toFixed(4)) + ' 万元');
             });
 
-
+            // 绑定归零按钮的点击事件
+            $('#resetButton').click(function () {
+                // 清空输入字段
+                $('#fundsInput').val('');
+                // 清空表格内容
+                populateDeductionTable();
+                // 清空结果
+                $('#result').text('');
+            });
         });
-
-
-
-
-
-
     </script>
-
 </body>
 
 </html>
