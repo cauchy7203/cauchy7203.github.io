@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>横向科研项目管理费计算器</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        #result,
+        #deductionDetails {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f7f7f7;
+        }
+
+        /* 设置 input 和 button 的样式 */
+        .input-button-container {
+            width: 100%;
+            /* 容器宽度设为100% */
+            margin-top: 10px;
+        }
+
+        .input-button-container input,
+        .input-button-container button {
+            width: 100%;
+            /* input 和 button 宽度设为100% */
+            padding: 10px;
+            margin-top: 10px;
+            /* 与上一个元素保持一定间距 */
+            box-sizing: border-box;
+            /* 边框计算在宽度内 */
+        }
+
+        #result {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>分段函数计算器</h2>
+        <div class="input-button-container">
+            <input type="number" id="fundsInput" placeholder="请输入经费（万元）">
+            <button id="calculateButton">计算管理费</button>
+        </div>
+        <div id="result"></div>
+        <table id="deductionTable">
+            <tr>
+                <th>经费范围</th>
+                <th>费率(%)</th>
+                <th>扣除管理费(万元)</th>
+            </tr>
+            <!-- 表格内容将通过 jQuery 动态插入 -->
+        </table>
+        <div id="deductionDetails"></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var rateTable = [
+                { range: '0-20（含）', rate: 0.05 },
+                { range: '20-50（含）', rate: 0.04 },
+                { range: '50-200（含）', rate: 0.03 },
+                { range: '200-500（含）', rate: 0.02 },
+                { range: '500万元以上', rate: 0 } // 注意这里的区间表示方式
+            ];
+
+            function populateRateTable() {
+                var table = $('#deductionTable');
+                rateTable.forEach(function (item, index) {
+                    var fee = item.rate ? (item.rate * 100).toFixed(2) + '%' : '免收';
+                    table.append(
+                        '<tr><td>' + item.range + '</td><td>' + fee + '</td><td></td></tr>'
+                    );
+                });
+            }
+
+            $('#calculateButton').click(function () {
+                var funds = parseFloat($('#fundsInput').val()) || 0;
+                var managementFees = rateTable.map(function (item) {
+                    var maxRange = parseInt(item.range.split('-')[1].replace('含', ''));
+                    return {
+                        range: item.range,
+                        fee: item.rate,
+                        deduction: funds > 0 && funds <= maxRange ? (funds * item.rate).toFixed(2) : '免收'
+                    };
+                });
+                
+                var totalFee = managementFees.reduce(function (total, item) {
+                    return total + parseFloat(item.deduction === '免收' ? 0 : item.deduction);
+                }, 0);
+
+                $('#result').text('管理费总计为：' + totalFee.toFixed(2) + ' 万元');
+
+                var deductionHtml = '<h3>各段扣费详情：</h3>';
+                managementFees.forEach(function (item) {
+                    deductionHtml += '<p>' + item.range + '：扣费 ' + item.deduction + ' 万元</p>';
+                });
+                $('#deductionDetails').html(deductionHtml);
+
+                // 更新表格中的扣除管理费列
+                $('#deductionTable tr').each(function (index) {
+                    if (index === 0) return; // 跳过表头
+                    $(this).find('td:eq(2)').text(managementFees[index - 1].deduction + ' 万元');
+                });
+            });
+
+            populateRateTable();
+        });
+    </script>
+
+</body>
+
+</html>
