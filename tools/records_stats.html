@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>成绩表单</title>
+    <script src="./cdns/xlsx.full.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        button, input {
+            margin: 10px auto;
+            display: block;
+        }
+        #dropZone {
+            width: 60%;
+            margin: 20px auto;
+            padding: 30px;
+            border: 2px dashed #aaa;
+            text-align: center;
+            font-size: 18px;
+            color: #aaa;
+        }
+        #dropZone.dragover {
+            background-color: #f4f4f4;
+            border-color: #888;
+        }
+
+        /* 限制表格显示区域 */
+        #gradesTableWrapper {
+            width: 60%;
+            height: 300px; /* 设置表格最大显示高度 */
+            overflow-y: auto; /* 添加纵向滚动条 */
+            margin: 20px auto;
+            border: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">成绩表单</h1>
+
+    <!-- 文件上传按钮 -->
+    <input type="file" id="fileInput" accept=".xlsx, .xls, .csv">
+
+    <!-- 拖拽区域 -->
+    <div id="dropZone">将文件拖拽到此处</div>
+
+    <!-- 表格外层容器 -->
+    <div id="gradesTableWrapper">
+        <table id="gradesTable" contenteditable="true">
+            <thead>
+                <tr>
+                    <th>编号</th>
+                    <th>考核成绩</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 初始行 -->
+                <tr>
+                    <td>1</td>
+                    <td contenteditable="true"></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td contenteditable="true"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 统计按钮 -->
+    <button id="statsButton" style="margin: 10px auto; display: block;">统计</button>
+    
+    <table id="scoreTable" style="margin-top: 20px; width: 80%; margin-left: auto; margin-right: auto;">
+        <thead>
+            <tr>
+                <th rowspan="2">成绩状态</th>
+                <th colspan="2">学生人数</th>
+                <th colspan="6">综合成绩分布（人数）</th>
+            </tr>
+            <tr>
+                <th>应考</th>
+                <th>实考</th>
+                <th>不及格</th>
+                <th>60－69</th>
+                <th>70－79</th>
+                <th>80－84</th>
+                <th>85－89</th>
+                <th>90分以上</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>综合成绩统计（含重修）</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td colspan="9" style="text-align: center;">
+                    平均分： &nbsp;&nbsp;&nbsp;&nbsp; 最高分： &nbsp;&nbsp;&nbsp;&nbsp; 不合格率： &nbsp;&nbsp;&nbsp;&nbsp; 合格率： &nbsp;&nbsp;&nbsp;&nbsp; 优良率：
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const dropZone = document.getElementById('dropZone');
+        const gradesTable = document.getElementById('gradesTable').querySelector('tbody');
+        const statsButton = document.getElementById('statsButton');
+        const scoreTable = document.getElementById('scoreTable').querySelector('tbody');
+
+        // 文件上传按钮
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                processFile(file);
+            }
+        });
+
+        // 拖拽上传文件
+        dropZone.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = event.dataTransfer.files[0];
+            if (file) {
+                processFile(file);
+            }
+        });
+
+        // 处理文件
+        function processFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const data = new Uint8Array(e.target.result);
+                const workbook = XLSX.read(data, { type: 'array' });
+                const sheetName = workbook.SheetNames[0];
+                const sheet = workbook.Sheets[sheetName];
+                const json = XLSX.utils.sheet_to_json(sheet);
+
+                // 提取"考核成绩"列数据，保留“缺考”文字并将有效的成绩转换为整数
+                const scores = json.map(row => {
+                    const score = row['考核成绩'];
+                    // 如果是数字，则四舍五入为整数；如果是"缺考"或其他文字，则保留文字
+                    if (!isNaN(score)) {
+                        return Math.round(Number(score));  // 将数值转换为整数
+                    } else {
+                        return score;  // 保留“缺考”或其他文字
+                    }
+                }).filter(score => score !== undefined);
+                
+                populateTable(scores);
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        // 填充表格内容
+        function populateTable(scores) {
+            // 保留现有行的编号
+            const existingRows = gradesTable.querySelectorAll('tr');
+            scores.forEach((score, index) => {
+                if (index < existingRows.length) {
+                    // 已有行，更新成绩
+                    existingRows[index].cells[1].textContent = score;
+                } else {
+                    // 新行，添加成绩
+                    addRow(score);
+                }
+            });
+            updateRowNumbers(); // 更新编号
+        }
+
+        // 添加表格行
+        function addRow(score = "") {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td></td><td contenteditable="true">${score}</td>`;
+            gradesTable.appendChild(tr);
+        }
+
+        // 更新编号
+        function updateRowNumbers() {
+            const rows = gradesTable.querySelectorAll('tr');
+            rows.forEach((row, index) => {
+                const cell = row.querySelector('td');
+                if (cell) {
+                    cell.textContent = index + 1; // 设置编号
+                }
+            });
+        }
+
+        // 监听表格粘贴事件
+        gradesTable.addEventListener('paste', (event) => {
+            event.preventDefault();
+
+            // 获取粘贴的内容
+            const pastedData = (event.clipboardData || window.clipboardData).getData('text');
+            const scores = pastedData.split('\n')
+                .map(score => score.trim())
+                .filter(score => score !== "");  // 过滤掉空行
+
+            // 剔除列名
+            if (scores[0] && scores[0] === '考核成绩') {
+                scores.shift(); // 如果粘贴数据的第一项是“考核成绩”，则移除列名
+            }
+
+            // 填充粘贴的成绩数据
+            populateTable(scores);
+        });
+
+        // 初始时为表格设置编号
+        updateRowNumbers();
+
+        // 统计按钮事件
+        statsButton.addEventListener('click', () => {
+            // 获取所有有效成绩（不包括缺考）
+            const scores = Array.from(gradesTable.querySelectorAll('tr')).map(row => row.cells[1]?.textContent).filter(score => score !== '缺考' && score !== undefined);
+            
+            // 获取总学生数和实考学生数
+            const totalStudents = gradesTable.querySelectorAll('tr').length;  // 包含所有学生，包括缺考
+            const validScores = scores.map(score => parseFloat(score)); // 转换为数值
+
+            // 计算实考人数（有效成绩数量）
+            const validStudents = validScores.filter(score => !isNaN(score)).length;
+
+            // 计算统计值
+            const passed = validScores.filter(score => score >= 60).length;
+            const score60to69 = validScores.filter(score => score >= 60 && score < 70).length;
+            const score70to79 = validScores.filter(score => score >= 70 && score < 80).length;
+            const score80to84 = validScores.filter(score => score >= 80 && score < 85).length;
+            const score85to89 = validScores.filter(score => score >= 85 && score < 90).length;
+            const excellent = validScores.filter(score => score >= 90).length;
+            const failure = validScores.filter(score => score < 60).length;
+
+            // 填充表格内容
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(2)').textContent = totalStudents; // 应考人数
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(3)').textContent = validStudents; // 实考人数
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(4)').textContent = failure; // 不及格
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(5)').textContent = score60to69; // 60-69
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(6)').textContent = score70to79; // 70-79
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(7)').textContent = score80to84; // 80-84
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(8)').textContent = score85to89; // 85-89
+            scoreTable.querySelector('tr:nth-child(1) td:nth-child(9)').textContent = excellent; // 90分以上
+
+
+            // 更新其他统计信息
+            scoreTable.querySelector('tr:nth-child(2) td:nth-child(1)').textContent = `
+            平均分：${(validScores.reduce((sum, score) => sum + score, 0) / validScores.length).toFixed(2)} 
+            最高分：${Math.max(...validScores)} 
+            不合格率：${((failure / validStudents) * 100).toFixed(2)}% 
+            合格率：${(((validStudents - failure) / validStudents) * 100).toFixed(2)}% 
+            优良率：${((excellent / validStudents) * 100).toFixed(2)}%`;
+        });
+    </script>
+</body>
+</html>
