@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>横向科研项目管理费计算器2025</title>
+    <script src="./cdns/jquery-3.7.1.min.js"></script>
+    <style>
+        .container {
+            width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        #result,
+        #deductionDetails {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f7f7f7;
+        }
+
+        /* 设置 input 和 button 的样式 */
+        .input-button-container {
+            width: 100%;
+            /* 容器宽度设为100% */
+            margin-top: 10px;
+        }
+
+        .input-button-container input,
+        .input-button-container button {
+            width: 100%;
+            /* input 和 button 宽度设为100% */
+            padding: 10px;
+            margin-top: 10px;
+            /* 与上一个元素保持一定间距 */
+            box-sizing: border-box;
+            /* 边框计算在宽度内 */
+        }
+
+        #result {
+            color: red;
+        }
+
+        .cost {
+            color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>横向科研项目管理费计算器</h2>
+        <div class="input-button-container">
+            <input type="number" id="fundsInput" placeholder="请输入经费（万元）">
+            <button id="calculateButton">计算管理费</button>
+            <button id="resetButton">归零</button>
+        </div>
+        <table id="deductionTable">
+            <thead>
+                <tr>
+                    <th>经费范围</th>
+                    <th>费率(%)</th>
+                    <th>适用金额(万元)</th>
+                    <th>扣除管理费(万元)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <!-- 表格内容将通过 jQuery 动态插入 -->
+                <tr>
+                    <td>0-50（含）</td>
+                    <td>6.00%</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>50-200（含）</td>
+                    <td>4.00%</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>200-500（含）</td>
+                    <td>3.00%</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>500-1000（含）</td>
+                    <td>2.00%</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>1000万元以上</td>
+                    <td>免收</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div id="deductionDetails"></div>
+        <div><strong id="result"></strong></div>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            var rateTable = [
+                { min: '0', max: '50', rate: 0.06 },
+                { min: '50', max: '200', rate: 0.04 },
+                { min: '200', max: '500', rate: 0.02 },
+                { min: '500', max: '1000', rate: 0.01 },
+                { min: '1000', max: Infinity, rate: 0 }
+            ];
+
+            // 计算详细费率
+
+            function calculateTotalCost(value) {
+                var totalCost = 0;
+                var breakdown = [];
+
+
+                for (var i = 0; i < rateTable.length; i++) {
+                    var min = rateTable[i].min;
+                    var max = rateTable[i].max;
+                    var rate = rateTable[i].rate;
+                    var applicableAmount = 0;
+                    var cost = 0;
+
+                    if (value > min) {
+                        // 计算当前区间的适用金额
+                        applicableAmount = Math.min(value, max) - min;
+                        cost = applicableAmount * rate;
+                        totalCost += cost;
+                    }
+                    // 将区间信息添加到 breakdown 中，即使是 0 也要添加
+                    breakdown.push({
+                        range: `${min}-${max}`,
+                        applicableAmount: applicableAmount,
+                        rate: rate,
+                        cost: cost
+                    });
+                }
+
+                return {
+                    totalCost: totalCost,
+                    breakdown: breakdown
+                };
+            }
+
+            function populateDeductionTable(result) {
+                if (result) {
+                    var $tableBody = $('#deductionTable tbody');
+                    $tableBody.empty();
+                    var checkValue = 0;
+                    var checktotalCost = 0;
+                    // 填充 breakdown 信息到表格中
+                    $.each(result.breakdown, function (index, entry) {
+                        var $row = $('<tr></tr>');
+
+                        $row.append($('<td></td>').text(entry.range + '（含）'));
+                        $row.append($('<td></td>').text(parseFloat((entry.rate * 100).toFixed(4)) + '%'));
+                        $row.append($('<td></td>').text(parseFloat(entry.applicableAmount.toFixed(4))));
+                        $row.append($('<td class="cost"></td>').text(parseFloat(entry.cost.toFixed(4))));
+
+                        $tableBody.append($row);
+                        checkValue += entry.applicableAmount;
+                        checktotalCost += entry.cost;
+                    });
+
+                    var $row = $('<tr></tr>');
+
+                    $row.append($('<td class="cost"></td>').append($('<strong></strong>').text("核对总金额：")));
+                    $row.append($('<td></td>'));
+                    $row.append($('<td class="cost"></td>').append($('<strong></strong>').text(parseFloat(checkValue.toFixed(4)))));
+                    $row.append($('<td class="cost"></td>').append($('<strong></strong>').text(parseFloat(checktotalCost.toFixed(4)))));
+
+                    $tableBody.append($row);
+                }
+                else {
+                    var $tableBody = $('#deductionTable tbody');
+                    $tableBody.empty();
+
+                    // 填充 rateTable 信息到表格中
+                    $.each(rateTable, function (index, entry) {
+                        var $row = $('<tr></tr>');
+
+                        $row.append($('<td></td>').text(entry.min + '-' + entry.max + '（含）'));
+                        $row.append($('<td></td>').text(parseFloat((entry.rate * 100).toFixed(4)) + '%'));
+                        $row.append($('<td></td>'));
+                        $row.append($('<td class="cost"></td>'));
+
+                        $tableBody.append($row);
+                    });
+                }
+            }
+
+
+
+            // 绑定计算按钮的点击事件
+            $('#calculateButton').click(function () {
+                var funds = parseFloat($('#fundsInput').val());
+                if (isNaN(funds) || funds < 0) {
+                    alert('请输入有效的经费金额');
+                    return;
+                }
+
+                fee_result = calculateTotalCost(funds);
+                populateDeductionTable(fee_result);
+
+                $('#result').text('管理费总计为：' + parseFloat(fee_result.totalCost.toFixed(4)) + ' 万元');
+            });
+
+            // 绑定归零按钮的点击事件
+            $('#resetButton').click(function () {
+                // 清空输入字段
+                $('#fundsInput').val('');
+                // 清空表格内容
+                populateDeductionTable();
+                // 清空结果
+                $('#result').text('');
+            });
+        });
+    </script>
+</body>
+
+</html>
